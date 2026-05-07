@@ -258,6 +258,12 @@ b {
   min-height: 60px;
 }
 
+@media (min-width: 768px) {
+  .header-brand-row {
+    justify-content: center;
+  }
+}
+
 .header-navbar .logo-title {
   font-family: var(--font-heading);
   font-size: 1.25rem;
@@ -350,13 +356,22 @@ b {
   align-items: center;
 }
 
+@media (min-width: 768px) {
+  .nav-list--sections {
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 0;
+  }
+}
+
 .nav-list--sections {
   row-gap: 0.45rem;
 }
 
 .nav-link {
   font-family: var(--font-body);
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 300;
   letter-spacing: 0.04em;
   text-transform: none;
