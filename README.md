@@ -1,4 +1,4 @@
-# Engineering Pond Website
+# Engineering Pond Website (https://shadowesu.github.io/engineering-pond-website/)
 
 Static website for the **DVC Pond Research Project** (engineering team). This repo is deployable as a GitHub Pages site (no build step).
 
