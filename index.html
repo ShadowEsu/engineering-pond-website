@@ -7,7 +7,8 @@
   <title>DVC Pond Research Project | Engineering Team</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -16,32 +17,30 @@
   <header class="site-header" id="top">
     <div class="header-navbar">
       <div class="header-navbar-inner container-wide">
-        <a class="logo logo--nav" href="#top">
-          <span class="logo-mark" aria-hidden="true"><span class="logo-mark-ripple"></span></span>
-          <span class="logo-text-block">
-            <span class="logo-title">DVC Pond Research</span>
-            <span class="logo-affiliation">Engineering team</span>
-          </span>
-        </a>
-        <nav class="nav" aria-label="Primary">
+        <div class="header-brand-row">
+          <a class="logo logo--nav logo--wordmark" href="#top">
+            <span class="logo-text-block">
+              <span class="logo-title">DVC Pond Research Engineers</span>
+              <span class="logo-affiliation">MESA · Engineering team</span>
+            </span>
+          </a>
           <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-drawer">
-            <span class="nav-toggle-bar"></span>
-            <span class="nav-toggle-bar"></span>
-            <span class="nav-toggle-bar"></span>
+            <span class="material-symbols-outlined nav-toggle-icon" aria-hidden="true">menu</span>
             <span class="visually-hidden">Menu</span>
           </button>
+        </div>
+        <nav class="nav" aria-label="Page sections">
           <div id="nav-drawer" class="nav-drawer">
-            <ul id="nav-menu" class="nav-list">
+            <ul id="nav-menu" class="nav-list nav-list--sections">
               <li><a class="nav-link" href="#data" data-section="data">Data</a></li>
               <li><a class="nav-link" href="#mission" data-section="mission">Overview</a></li>
-              <li><a class="nav-link" href="#repos" data-section="repos">Code</a></li>
               <li><a class="nav-link" href="#monitoring" data-section="monitoring">Instrumentation</a></li>
-              <li><a class="nav-link" href="#sponsor" data-section="sponsor">Support</a></li>
-              <li><a class="nav-link" href="#engineering" data-section="engineering">Systems</a></li>
               <li><a class="nav-link" href="#roadmap" data-section="roadmap">Roadmap</a></li>
-              <li><a class="nav-link" href="#progress" data-section="progress">Progress</a></li>
               <li><a class="nav-link" href="#team" data-section="team">People</a></li>
+              <li><a class="nav-link" href="#engineering" data-section="engineering">Systems &amp; code</a></li>
+              <li><a class="nav-link" href="#progress" data-section="progress">Progress</a></li>
               <li><a class="nav-link" href="#resources" data-section="resources">References</a></li>
+              <li><a class="nav-link" href="#cite" data-section="cite">Cite</a></li>
               <li><a class="nav-link" href="#gallery" data-section="gallery">Media</a></li>
             </ul>
           </div>
@@ -51,68 +50,67 @@
   </header>
 
   <main id="main">
-    <section class="hero">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-wave-wrap" aria-hidden="true">
-        <svg class="hero-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
-          <path class="hero-wave-path hero-wave-path-a" fill="currentColor" d="M0,160L48,154.7C96,149,192,139,288,138.7C384,139,480,149,576,165.3C672,181,768,203,864,197.3C960,192,1056,160,1152,138.7C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
-          <path class="hero-wave-path hero-wave-path-b" fill="currentColor" opacity="0.65" d="M0,224L60,213.3C120,203,240,181,360,181.3C480,181,600,203,720,208C840,213,960,203,1080,186.7C1200,171,1320,149,1380,138.7L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"/>
-        </svg>
-      </div>
-      <div class="hero-content container-wide">
-        <div class="hero-trust hero-stagger hero-stagger-1">
-          <div class="hero-trust-item">
-            <span class="hero-trust-logo hero-trust-logo--dvc" aria-hidden="true">DVC</span>
-            <span class="hero-trust-name">Diablo Valley College</span>
+    <section class="hero hero--stitch">
+      <div class="hero-visual">
+        <img class="hero-visual-img" src="assets/image-a8b3d238-3db9-4907-aa1e-0365a727f5cf.png" alt="ESP8266 breadboard prototype with OLED display and environmental sensors on a windowsill" width="1200" height="900" />
+        <div class="hero-visual-gradient" aria-hidden="true"></div>
+        <div class="hero-visual-inner container-wide">
+          <div class="hero-visual-badge-row hero-stagger hero-stagger-1">
+            <span class="hero-status-pill">ACTIVE STATUS</span>
+            <span class="hero-status-led" aria-hidden="true"></span>
           </div>
-          <div class="hero-trust-item">
-            <span class="hero-trust-logo hero-trust-logo--mesa" aria-hidden="true">MESA</span>
-            <span class="hero-trust-name">MESA DVC Foundation</span>
-          </div>
+          <h1 class="hero-visual-title hero-stagger hero-stagger-3">
+            <span class="hero-visual-title-line">Integrative ecological monitoring</span>
+          </h1>
+          <p class="hero-visual-kicker hero-stagger hero-stagger-4">MESA DVC Foundation · Division of Engineering · Spring 2026 Cohort</p>
         </div>
-        <p class="hero-institution hero-stagger hero-stagger-2">Diablo Valley College</p>
-        <p class="hero-status hero-stagger hero-stagger-2b"><span class="hero-status-dot" aria-hidden="true"></span> Active · In progress · Spring 2026 cohort</p>
-        <h1 class="hero-title">
-          <span class="hero-title-line hero-stagger hero-stagger-3">DVC Pond</span>
-          <span class="hero-title-line hero-stagger hero-stagger-4">Research Project</span>
-        </h1>
-        <p class="hero-affiliation hero-stagger hero-stagger-5">
-          <span class="hero-affiliation-name">MESA DVC Foundation</span>
-          <span class="hero-affiliation-sep" aria-hidden="true">·</span>
-          <span class="hero-affiliation-tag">Engineering team site</span>
-        </p>
-        <div class="hero-tags hero-stagger hero-stagger-5b">
-          <span class="hero-chip">Pond ecology</span>
-          <span class="hero-chip">Instrumentation</span>
-          <span class="hero-chip">Open data</span>
-          <span class="hero-chip">Lab and field</span>
-        </div>
-        <p class="hero-lead hero-stagger hero-stagger-6">
-          We study and support the three campus ponds through reproducible measurements, controlled cultures (~30&nbsp;°C capsule work), and field-ready platforms—documented alongside biology collaborators and published on our IO hub.
-        </p>
-        <div class="hero-actions hero-stagger hero-stagger-7">
-          <a class="btn btn-primary" href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">IO documentation hub</a>
-          <a class="btn btn-ghost" href="#repos">Repositories</a>
-          <a class="btn btn-ghost" href="#mission">Research overview</a>
-        </div>
-        <ul class="hero-highlights hero-stagger hero-stagger-8">
-          <li class="hero-highlight">
-            <span class="hero-highlight-label">Primary record</span>
-            <a href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">Measurements, notes, lab log ↗</a>
-          </li>
-          <li class="hero-highlight">
-            <span class="hero-highlight-label">Artifacts</span>
-            <span>GitHub repos · Tinkercad · ThingSpeak PoC</span>
-          </li>
-          <li class="hero-highlight">
-            <span class="hero-highlight-label">Focus</span>
-            <span>Water quality · habitat health · faster sampling</span>
-          </li>
-        </ul>
       </div>
-      <div class="hero-scroll" aria-hidden="true">
-        <span>Scroll</span>
-        <span class="hero-scroll-line"></span>
+      <div class="hero-below">
+        <div class="hero-content container-wide">
+          <blockquote class="hero-quote hero-stagger hero-stagger-2">
+            <p>“A multi-disciplinary initiative dedicated to rigorous monitoring and scientific study of campus pond ecosystems through integrated sensor networks, lab cultures, and field-ready platforms.”</p>
+            <cite>Technical overview — DVC Pond Research engineering team</cite>
+          </blockquote>
+          <div class="hero-trust hero-stagger hero-stagger-5">
+            <a class="hero-trust-item hero-trust-item--link" href="https://www.dvc.edu/" target="_blank" rel="noopener noreferrer">
+              <span class="hero-trust-logo hero-trust-logo--dvc" aria-hidden="true">DVC</span>
+              <span class="hero-trust-name">Diablo Valley College</span>
+            </a>
+            <a class="hero-trust-item hero-trust-item--link" href="https://www.dvc.edu/academics/learning-communities/mesa-program" target="_blank" rel="noopener noreferrer">
+              <span class="hero-trust-logo hero-trust-logo--mesa" aria-hidden="true">MESA</span>
+              <span class="hero-trust-name">MESA at DVC</span>
+            </a>
+          </div>
+          <p class="hero-status hero-stagger hero-stagger-2b"><span class="hero-status-dot" aria-hidden="true"></span> Active · In progress · Spring 2026 cohort</p>
+          <div class="hero-tags hero-stagger hero-stagger-5b">
+            <span class="hero-chip">Pond ecology</span>
+            <span class="hero-chip">Instrumentation</span>
+            <span class="hero-chip">Open data</span>
+            <span class="hero-chip">Lab and field</span>
+          </div>
+          <p class="hero-lead hero-stagger hero-stagger-6">
+            We study and support the three campus ponds through reproducible measurements, controlled cultures (~30&nbsp;°C capsule work), and field-ready platforms—documented alongside biology collaborators and published on our IO hub.
+          </p>
+          <div class="hero-actions hero-stagger hero-stagger-7">
+            <a class="btn btn-primary" href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer"><span class="btn-label">I/O hub &amp; documentation</span><span class="material-symbols-outlined btn-icon" aria-hidden="true">arrow_forward</span></a>
+            <a class="btn btn-ghost" href="#engineering">Systems &amp; code</a>
+            <a class="btn btn-ghost" href="#mission">Research overview</a>
+          </div>
+          <ul class="hero-highlights hero-stagger hero-stagger-8">
+            <li class="hero-highlight">
+              <span class="hero-highlight-label">Primary record</span>
+              <a href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">Measurements, notes, lab log ↗</a>
+            </li>
+            <li class="hero-highlight">
+              <span class="hero-highlight-label">Artifacts</span>
+              <span>GitHub repos · Tinkercad · ThingSpeak PoC</span>
+            </li>
+            <li class="hero-highlight">
+              <span class="hero-highlight-label">Focus</span>
+              <span>Water quality · habitat health · faster sampling</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -154,6 +152,11 @@
             <p class="live-data-desc">Measurements, field notes, and lab documentation on the project IO site.</p>
             <a class="btn btn-primary btn-sm" href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">Open IO documentation ↗</a>
           </div>
+          <div class="live-data-card">
+            <h3 class="live-data-title">Campaign spreadsheet</h3>
+            <p class="live-data-desc">Shared Google Sheet for pond runs, timestamps, and notes.</p>
+            <a class="btn btn-ghost" href="https://docs.google.com/spreadsheets/d/1jRo4IqDwOE28Zj2VbaXQlAlaqkCJDlxkP3YryVd3gGk/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer">Open spreadsheet ↗</a>
+          </div>
         </div>
         <div class="documents-row">
           <h3 class="documents-title">Project documents</h3>
@@ -174,15 +177,11 @@
           <ul class="toc-list">
             <li><a class="toc-link" href="#data" data-toc="data">Data</a></li>
             <li><a class="toc-link" href="#mission" data-toc="mission">Overview</a></li>
-            <li><a class="toc-link" href="#repos" data-toc="repos">Code</a></li>
             <li><a class="toc-link" href="#monitoring" data-toc="monitoring">Instrumentation</a></li>
-            <li><a class="toc-link" href="#sponsor" data-toc="sponsor">Support</a></li>
             <li><a class="toc-link" href="#roadmap" data-toc="roadmap">Roadmap</a></li>
             <li><a class="toc-link" href="#team" data-toc="team">People</a></li>
-            <li><a class="toc-link" href="#engineering" data-toc="engineering">Systems</a></li>
-            <li><a class="toc-link" href="#progress" data-toc="progress">Milestones</a></li>
-            <li><a class="toc-link" href="#resources" data-toc="resources">References</a></li>
-            <li><a class="toc-link" href="#cite" data-toc="cite">Cite</a></li>
+            <li><a class="toc-link" href="#engineering" data-toc="engineering">Systems &amp; code</a></li>
+            <li><a class="toc-link" href="#progress" data-toc="progress">Progress</a></li>
             <li><a class="toc-link" href="#gallery" data-toc="gallery">Media</a></li>
           </ul>
         </nav>
@@ -237,41 +236,6 @@
       </div>
     </section>
 
-    <section class="section section-tight section-surface section-bounded" id="repos">
-      <div class="section-inner">
-        <header class="section-header section-header-inline reveal" data-reveal>
-          <div>
-            <p class="section-label">02 · Code</p>
-            <h2>Repositories and tools</h2>
-            <p class="section-subtitle">Version control · color pipeline · simulations</p>
-          </div>
-        </header>
-        <div class="bento bento-3 reveal-stagger reveal" data-reveal>
-          <a class="bento-card bento-card-accent stagger-item" href="https://github.com/ShadowEsu/dvcpondresearch" target="_blank" rel="noopener noreferrer">
-            <span class="bento-kicker">GitHub</span>
-            <h3 class="bento-title">dvcpondresearch</h3>
-            <p class="bento-desc">MESA pond research group site source and deployment workflow.</p>
-            <span class="bento-go">View repository ↗</span>
-          </a>
-          <a class="bento-card stagger-item" href="https://github.com/ShadowEsu/Color-Grading-System-Pond-Project-System" target="_blank" rel="noopener noreferrer">
-            <span class="bento-kicker">GitHub</span>
-            <h3 class="bento-title">Color grading system</h3>
-            <p class="bento-desc">Match test-strip and experiment colors against controls for repeatable readouts.</p>
-            <span class="bento-go">View repository ↗</span>
-          </a>
-          <div class="bento-card bento-card-dense stagger-item">
-            <span class="bento-kicker">Sim and CAD</span>
-            <h3 class="bento-title">Design stack</h3>
-            <ul class="bento-list">
-              <li><a href="https://www.tinkercad.com/things/fJQX1NhdqfI-incubator/editel" target="_blank" rel="noopener noreferrer">Tinkercad — incubator (temperature sense)</a></li>
-              <li><a href="https://www.tinkercad.com/" target="_blank" rel="noopener noreferrer">Tinkercad — circuits and 3D</a></li>
-              <li><a href="https://wokwi.com/" target="_blank" rel="noopener noreferrer">Wokwi — online Arduino / ESP simulation</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section section-alt section-bounded" id="monitoring">
       <div class="section-inner">
         <header class="section-header reveal" data-reveal>
@@ -305,25 +269,6 @@
               <li>Align sensor fusion / navigation research with field goals</li>
             </ul>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section sponsor-strip section-bounded" id="sponsor">
-      <div class="section-inner reveal" data-reveal>
-        <header class="section-header">
-          <p class="section-label">04 · Support</p>
-          <h2>Sponsor</h2>
-          <p class="section-subtitle">Program affiliation</p>
-        </header>
-        <div class="sponsor-card">
-          <div class="sponsor-badge" aria-hidden="true">MESA</div>
-          <div class="sponsor-body">
-            <h3 class="sponsor-name">MESA DVC Foundation</h3>
-            <p>
-              Sponsored and supported by the <strong>MESA DVC Foundation</strong>, strengthening mathematics, engineering, and science pathways at Diablo Valley College.
-            </p>
-          </div>
         </div>
       </div>
     </section>
@@ -416,7 +361,7 @@
     <section class="section section-alt section-bounded" id="engineering">
       <div class="section-inner">
         <header class="section-header reveal" data-reveal>
-          <p class="section-label">07 · Systems</p>
+          <p class="section-label">07 · Systems &amp; code</p>
           <h2>Systems under development</h2>
           <p class="section-subtitle">Capsule · logging · robotics</p>
         </header>
@@ -457,6 +402,38 @@
           <article class="mini-card reveal" data-reveal><h3>Gantt &amp; funding</h3><p>Timeline with dependencies; student-government deck; need statements for metrics beyond pH/DO/turbidity.</p></article>
           <article class="mini-card reveal" data-reveal><h3>Color analysis</h3><p>GitHub color-grading system linked to strip imaging hardware experiments.</p></article>
           <article class="mini-card reveal" data-reveal><h3>Bio × Eng</h3><p>Bacteria capture and growth supported by controlled capsule and shared data model with IO site.</p></article>
+        </div>
+
+        <header class="section-header section-header-inline reveal" data-reveal>
+          <div>
+            <p class="section-label">Code tools</p>
+            <h2>Repositories and tools</h2>
+            <p class="section-subtitle">Version control · color pipeline · simulations</p>
+          </div>
+        </header>
+
+        <div class="bento bento-3 reveal-stagger reveal" data-reveal>
+          <a class="bento-card bento-card-accent stagger-item" href="https://github.com/ShadowEsu/dvcpondresearch" target="_blank" rel="noopener noreferrer">
+            <span class="bento-kicker">GitHub</span>
+            <h3 class="bento-title">dvcpondresearch</h3>
+            <p class="bento-desc">MESA pond research group site source and deployment workflow.</p>
+            <span class="bento-go">View repository ↗</span>
+          </a>
+          <a class="bento-card stagger-item" href="https://github.com/ShadowEsu/Color-Grading-System-Pond-Project-System" target="_blank" rel="noopener noreferrer">
+            <span class="bento-kicker">GitHub</span>
+            <h3 class="bento-title">Color grading system</h3>
+            <p class="bento-desc">Match test-strip and experiment colors against controls for repeatable readouts.</p>
+            <span class="bento-go">View repository ↗</span>
+          </a>
+          <div class="bento-card bento-card-dense stagger-item">
+            <span class="bento-kicker">Sim and CAD</span>
+            <h3 class="bento-title">Design stack</h3>
+            <ul class="bento-list">
+              <li><a href="https://www.tinkercad.com/things/fJQX1NhdqfI-incubator/editel" target="_blank" rel="noopener noreferrer">Tinkercad — incubator (temperature sense)</a></li>
+              <li><a href="https://www.tinkercad.com/" target="_blank" rel="noopener noreferrer">Tinkercad — circuits and 3D</a></li>
+              <li><a href="https://wokwi.com/" target="_blank" rel="noopener noreferrer">Wokwi — online Arduino / ESP simulation</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -646,14 +623,16 @@
     <div class="container-wide footer-main">
       <div class="footer-brand">
         <a class="footer-logo" href="#top" aria-label="Diablo Valley College home">
-          <svg class="footer-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="120" height="40" aria-hidden="true"><rect width="120" height="40" rx="6" fill="#1a3a2a"/><text x="60" y="26" text-anchor="middle" fill="#fff" font-family="Fraunces, Georgia, serif" font-size="15" font-weight="700">DVC</text></svg>
+          <svg class="footer-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="120" height="40" aria-hidden="true"><rect width="120" height="40" rx="6" fill="#1a3a2a"/><text x="60" y="26" text-anchor="middle" fill="#fff" font-family="Crimson Pro, Georgia, serif" font-size="15" font-weight="300">DVC</text></svg>
         </a>
         <p class="footer-title">DVC Pond Research Project</p>
         <p class="footer-affil">MESA DVC Foundation</p>
         <p class="footer-dept">Diablo Valley College Engineering Department</p>
         <p class="footer-meta">Pond ecology and instrumentation</p>
         <p class="footer-links">
-          <a href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">IO documentation</a>
+          <a href="https://www.dvc.edu/" target="_blank" rel="noopener noreferrer">DVC</a>
+          · <a href="https://www.dvc.edu/academics/learning-communities/mesa-program" target="_blank" rel="noopener noreferrer">MESA DVC</a>
+          · <a href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">IO documentation</a>
           · <a href="https://github.com/ShadowEsu/dvcpondresearch" target="_blank" rel="noopener noreferrer">GitHub</a>
         </p>
       </div>
@@ -662,10 +641,12 @@
         <ul class="footer-nav-list">
           <li><a href="#data">Data</a></li>
           <li><a href="#mission">Overview</a></li>
-          <li><a href="#repos">Code</a></li>
           <li><a href="#monitoring">Instrumentation</a></li>
-          <li><a href="#engineering">Systems</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+          <li><a href="#team">People</a></li>
+          <li><a href="#engineering">Systems &amp; code</a></li>
           <li><a href="#progress">Progress</a></li>
+          <li><a href="#resources">References</a></li>
           <li><a href="#cite">Cite</a></li>
           <li><a href="#gallery">Media</a></li>
         </ul>
