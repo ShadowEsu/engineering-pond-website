@@ -265,10 +265,12 @@ b {
 }
 
 .header-navbar .logo-title {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 300;
-  letter-spacing: 0.06em;
+  font-family: "Crimson Pro", Georgia, "Times New Roman", serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: 0.09em;
+  justify-content: center;
+  text-align: center;
   text-transform: uppercase;
   color: var(--header-fg);
 }
@@ -357,11 +359,16 @@ b {
 }
 
 @media (min-width: 768px) {
+  .nav-drawer {
+    width: 100%;
+  }
+
   .nav-list--sections {
     width: 100%;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     gap: 0;
+    padding-inline: 0.75rem;
   }
 }
 
@@ -377,7 +384,7 @@ b {
   text-transform: none;
   color: rgba(255, 255, 255, 0.88);
   text-decoration: none;
-  padding: 0.4rem 0;
+  padding: 0.5rem 0.75rem;
   border-bottom: none;
   transition: color 0.15s ease;
 }
