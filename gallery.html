@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Photo and document gallery | DVC Pond Research Project</title>
+  <meta name="description" content="Lab, bench, and planning photos and documents from the DVC Pond Research engineering team." />
+  <meta property="og:title" content="Photo and document gallery | DVC Pond Research Project" />
+  <meta property="og:description" content="Lab, bench, and planning photos and documents from the DVC Pond Research engineering team." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shadowesu.github.io/engineering-pond-website/gallery.html" />
+  <meta property="og:image" content="https://shadowesu.github.io/engineering-pond-website/assets/img/IMG_5968-wide-1376.webp" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23fff' stroke='%23000' stroke-width='2'/%3E%3Cpath d='M16 16V2a14 14 0 0 1 14 14zM16 16v14A14 14 0 0 1 2 16z' fill='%23000'/%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#fafaf9" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400..600&family=Newsreader:opsz,wght@6..72,300..500&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    document.documentElement.classList.add("js");
+    setTimeout(function () { var h = document.querySelector(".hero"); if (h) h.classList.add("is-in"); }, 3000);
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-ext" viewBox="0 0 16 16"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-secchi" viewBox="0 0 32 40"><path d="M16 0v10" style="stroke: var(--rope, currentColor)" stroke-width="1.5"/><circle cx="16" cy="24" r="14" fill="#fff" style="stroke: var(--ring, currentColor)" stroke-width="2"/><path d="M16 24V10a14 14 0 0 1 14 14zM16 24v14A14 14 0 0 1 2 24z" fill="currentColor"/></symbol>
+  </svg>
+
+  <div class="topbar">
+    <p class="wrap">Spring 2026 cohort: active and in progress. <a href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">Open the I/O hub<span class="vh"> (opens in a new tab)</span></a></p>
+  </div>
+  <header class="site-header" id="top">
+    <div class="header-inner wrap">
+      <a class="brand" href="index.html" aria-label="DVC Pond Research Engineers, MESA engineering team: home">
+        <svg class="brand-mark" width="20" height="25" aria-hidden="true"><use href="#i-secchi"/></svg>
+        <span class="brand-title">DVC Pond Research</span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Site">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="research.html">Research</a></li>
+          <li><a class="nav-link" href="systems.html">Systems</a></li>
+          <li><a class="nav-link" href="build.html">Build</a></li>
+          <li><a class="nav-link" href="data.html">Data</a></li>
+          <li><a class="nav-link" href="team.html">Team</a></li>
+          <li><a class="nav-link" href="gallery.html" aria-current="page">Gallery</a></li>
+          <li><a class="nav-link" href="references.html">References</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-outline btn-sm" href="references.html#cite">Cite</a>
+        <a class="btn btn-solid btn-sm" href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">I/O hub<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+    <div class="scroll-meter" aria-hidden="true"><span class="scroll-meter-fill"></span></div>
+  </header>
+
+  <main id="main">
+    <section class="section tone-light hero page-hero" id="gallery" aria-labelledby="gallery-title">
+      <div class="wrap">
+        <div class="grid hero-grid">
+          <div class="c-l">
+            <p class="eyebrow">Gallery</p>
+            <h1 class="t-display hero-title" id="gallery-title"><span class="line"><span>Photo and</span></span><span class="line"><span>document gallery</span></span></h1>
+          </div>
+          <div class="hero-side c-r">
+            <p class="lead">Lab, bench, and planning artifacts</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tone-light" aria-label="Photos">
+      <div class="wrap">
+        <div class="filters" role="group" aria-label="Filter photos">
+          <button type="button" class="filter" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="filter" data-filter="capsule" aria-pressed="false">Capsule</button>
+          <button type="button" class="filter" data-filter="electronics" aria-pressed="false">Electronics and data</button>
+          <button type="button" class="filter" data-filter="lab" aria-pressed="false">Lab equipment</button>
+          <button type="button" class="filter" data-filter="planning" aria-pressed="false">Planning and team</button>
+        </div>
+        <p class="vh" id="gallery-status" aria-live="polite"></p>
+        <ul class="gallery" id="gallery-grid">
+          <li class="shot" data-cat="electronics"><button data-alt="Hands wiring an Arduino Nano on a breadboard, with an OLED display and a rotary encoder" type="button" class="shot-btn" data-full="assets/img/IMG_5968-1600.webp"><img src="assets/img/IMG_5968-800.webp" srcset="assets/img/IMG_5968-800.webp 800w, assets/img/IMG_5968-1600.webp 1600w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="800" height="1067" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Wiring the heater controller prototype</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="Top-down view of the bench with breadboards, a relay module, an OLED display, parts bags and a yellow Kapton heater pad" type="button" class="shot-btn" data-full="assets/img/IMG_5969-1600.webp"><img src="assets/img/IMG_5969-800.webp" srcset="assets/img/IMG_5969-800.webp 800w, assets/img/IMG_5969-1600.webp 1600w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="800" height="1067" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Heater controller parts and Kapton heater pad</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="Hands holding the wired heater controller outdoors; the OLED reads Target: 36.9 C and FAULT: HEAT OFF" type="button" class="shot-btn" data-full="assets/img/IMG_5971-1600.webp"><img src="assets/img/IMG_5971-800.webp" srcset="assets/img/IMG_5971-800.webp 800w, assets/img/IMG_5971-1600.webp 1600w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="800" height="1067" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Heater controller tested outdoors</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="ThingSpeak charts for temperature and humidity" type="button" class="shot-btn" data-full="assets/img/image-9a50-460.webp"><img src="assets/img/image-9a50-460.webp" width="460" height="1024" loading="lazy" decoding="async" alt="" /><span class="shot-cap">ThingSpeak charts for temperature and humidity</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="ESP8266 breadboard prototype" type="button" class="shot-btn" data-full="assets/img/image-a8b3-771.webp"><img src="assets/img/image-a8b3-480.webp" srcset="assets/img/image-a8b3-480.webp 480w, assets/img/image-a8b3-771.webp 771w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="480" height="637" loading="lazy" decoding="async" alt="" /><span class="shot-cap">ESP8266 breadboard prototype</span></button></li>
+          <li class="shot" data-cat="capsule"><button data-alt="Capsule prototype on bench" type="button" class="shot-btn" data-full="assets/img/IMG_9290-768.webp"><img src="assets/img/IMG_9290-480.webp" srcset="assets/img/IMG_9290-480.webp 480w, assets/img/IMG_9290-768.webp 768w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Capsule prototype on bench</span></button></li>
+          <li class="shot" data-cat="planning"><button data-alt="Typed meeting notes for incubator project" type="button" class="shot-btn shot-paper" data-full="assets/img/image-5cbe-468.webp"><img src="assets/img/image-5cbe-468.webp" width="468" height="648" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Typed meeting notes for incubator project</span></button></li>
+          <li class="shot" data-cat="capsule"><button data-alt="Interior of capsule with viewing ports and heater wiring" type="button" class="shot-btn" data-full="assets/img/IMG_9284-1024.webp"><img src="assets/img/IMG_9284-480.webp" srcset="assets/img/IMG_9284-480.webp 480w, assets/img/IMG_9284-1024.webp 1024w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="480" height="360" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Interior of capsule with heater wiring</span></button></li>
+          <li class="shot" data-cat="capsule"><button data-alt="Thermometer inside insulated box" type="button" class="shot-btn" data-full="assets/img/IMG_9289-768.webp"><img src="assets/img/IMG_9289-480.webp" srcset="assets/img/IMG_9289-480.webp 480w, assets/img/IMG_9289-768.webp 768w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Thermometer inside insulated box</span></button></li>
+          <li class="shot" data-cat="lab"><button data-alt="Sample bottles labelled Pond" type="button" class="shot-btn" data-full="assets/img/IMG_9301-768.webp"><img src="assets/img/IMG_9301-480.webp" srcset="assets/img/IMG_9301-480.webp 480w, assets/img/IMG_9301-768.webp 768w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Sample bottles labelled Pond</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="Arduino circuit simulation in Tinkercad on a laptop" type="button" class="shot-btn" data-full="assets/img/IMG_9292-768.webp"><img src="assets/img/IMG_9292-480.webp" srcset="assets/img/IMG_9292-480.webp 480w, assets/img/IMG_9292-768.webp 768w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Arduino circuit simulation in Tinkercad</span></button></li>
+          <li class="shot" data-cat="capsule"><button data-alt="Capsule lid with mounting bracket and red indicator light" type="button" class="shot-btn" data-full="assets/img/IMG_9291-768.webp"><img src="assets/img/IMG_9291-480.webp" srcset="assets/img/IMG_9291-480.webp 480w, assets/img/IMG_9291-768.webp 768w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Capsule lid with indicator light</span></button></li>
+          <li class="shot" data-cat="lab"><button data-alt="Heating mantle and tubing on a lab cart" type="button" class="shot-btn" data-full="assets/img/IMG_9298-768.webp"><img src="assets/img/IMG_9298-480.webp" srcset="assets/img/IMG_9298-480.webp 480w, assets/img/IMG_9298-768.webp 768w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Heating mantle and tubing on a lab cart</span></button></li>
+          <li class="shot" data-cat="capsule"><button data-alt="Thermometer lying on the capsule floor" type="button" class="shot-btn" data-full="assets/img/IMG_9286-1024.webp"><img src="assets/img/IMG_9286-480.webp" srcset="assets/img/IMG_9286-480.webp 480w, assets/img/IMG_9286-1024.webp 1024w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="480" height="360" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Thermometer on the capsule floor</span></button></li>
+          <li class="shot" data-cat="lab"><button data-alt="Heaters, hot plate and cables on a lab cart" type="button" class="shot-btn" data-full="assets/img/IMG_9296-768.webp"><img src="assets/img/IMG_9296-480.webp" srcset="assets/img/IMG_9296-480.webp 480w, assets/img/IMG_9296-768.webp 768w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Heaters and hot plates on a cart</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="Kanthal wire product page on a laptop" type="button" class="shot-btn" data-full="assets/img/IMG_9306-768.webp"><img src="assets/img/IMG_9306-480.webp" srcset="assets/img/IMG_9306-480.webp 480w, assets/img/IMG_9306-768.webp 768w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Kanthal wire product page</span></button></li>
+          <li class="shot" data-cat="lab"><button data-alt="Lab vacuum pumps and carts" type="button" class="shot-btn" data-full="assets/img/IMG_9302-1024.webp"><img src="assets/img/IMG_9302-480.webp" srcset="assets/img/IMG_9302-480.webp 480w, assets/img/IMG_9302-1024.webp 1024w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="480" height="360" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Lab vacuum pumps and carts</span></button></li>
+          <li class="shot" data-cat="planning"><button data-alt="Team at bench with laptops" type="button" class="shot-btn" data-full="assets/img/IMG_9305-768.webp"><img src="assets/img/IMG_9305-480.webp" srcset="assets/img/IMG_9305-480.webp 480w, assets/img/IMG_9305-768.webp 768w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Team at bench with laptops</span></button></li>
+          <li class="shot" data-cat="capsule"><button data-alt="Indicator light and bracket on the capsule" type="button" class="shot-btn" data-full="assets/img/IMG_9287-768.webp"><img src="assets/img/IMG_9287-480.webp" srcset="assets/img/IMG_9287-480.webp 480w, assets/img/IMG_9287-768.webp 768w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Indicator light and bracket on the capsule</span></button></li>
+          <li class="shot" data-cat="lab"><button data-alt="Equipment carts with heating mantle and pumps" type="button" class="shot-btn" data-full="assets/img/IMG_9303-1024.webp"><img src="assets/img/IMG_9303-480.webp" srcset="assets/img/IMG_9303-480.webp 480w, assets/img/IMG_9303-1024.webp 1024w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="480" height="360" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Equipment carts with heating mantle and pumps</span></button></li>
+          <li class="shot" data-cat="lab"><button data-alt="Cart with a heater and hot plates" type="button" class="shot-btn" data-full="assets/img/IMG_9297-768.webp"><img src="assets/img/IMG_9297-480.webp" srcset="assets/img/IMG_9297-480.webp 480w, assets/img/IMG_9297-768.webp 768w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Cart with a heater and hot plates</span></button></li>
+          <li class="shot" data-cat="lab"><button data-alt="Glassware in storage bins" type="button" class="shot-btn" data-full="assets/img/IMG_9300-768.webp"><img src="assets/img/IMG_9300-480.webp" srcset="assets/img/IMG_9300-480.webp 480w, assets/img/IMG_9300-768.webp 768w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Glassware in storage bins</span></button></li>
+          <li class="shot" data-cat="lab"><button data-alt="Hot plate and instruments on a cart" type="button" class="shot-btn" data-full="assets/img/IMG_9299-768.webp"><img src="assets/img/IMG_9299-480.webp" srcset="assets/img/IMG_9299-480.webp 480w, assets/img/IMG_9299-768.webp 768w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Hot plate and instruments on a cart</span></button></li>
+          <li class="shot" data-cat="lab"><button data-alt="Heating mantles and tubing in a cart basket" type="button" class="shot-btn" data-full="assets/img/IMG_9304-1024.webp"><img src="assets/img/IMG_9304-480.webp" srcset="assets/img/IMG_9304-480.webp 480w, assets/img/IMG_9304-1024.webp 1024w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="480" height="360" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Heating mantles and tubing</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="A team member at a laptop running a Wokwi simulation of the incubator circuit" type="button" class="shot-btn" data-full="assets/img/IMG_3958-1600.webp"><img src="assets/img/IMG_3958-800.webp" srcset="assets/img/IMG_3958-800.webp 800w, assets/img/IMG_3958-1600.webp 1600w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="800" height="600" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Wokwi simulation of the incubator circuit</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="2 team members wiring a breadboard with an OLED display and a rotary encoder" type="button" class="shot-btn" data-full="assets/img/IMG_7352-1600.webp"><img src="assets/img/IMG_7352-800.webp" srcset="assets/img/IMG_7352-800.webp 800w, assets/img/IMG_7352-1600.webp 1600w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="800" height="600" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Wiring the breadboard</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="Hands connecting jumper leads to a 2.42-inch OLED display module, relay module behind" type="button" class="shot-btn" data-full="assets/img/IMG_7355-1600.webp"><img src="assets/img/IMG_7355-800.webp" srcset="assets/img/IMG_7355-800.webp 800w, assets/img/IMG_7355-1600.webp 1600w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="800" height="600" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Connecting the 2.42-inch OLED</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="Relay module, rotary encoder and Arduino Nano on a breadboard" type="button" class="shot-btn" data-full="assets/img/IMG_7357-1600.webp"><img src="assets/img/IMG_7357-800.webp" srcset="assets/img/IMG_7357-800.webp 800w, assets/img/IMG_7357-1600.webp 1600w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="800" height="600" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Relay module, encoder and Nano</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="Top-down view of an Arduino Nano on a breadboard with jumper wires and a rotary encoder" type="button" class="shot-btn" data-full="assets/img/IMG_7359-1600.webp"><img src="assets/img/IMG_7359-800.webp" srcset="assets/img/IMG_7359-800.webp 800w, assets/img/IMG_7359-1600.webp 1600w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="800" height="1067" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Nano and jumper wiring, top-down</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="OLED reading Incubator, Target: 30.0 C beside a laptop showing the Arduino IDE sketch" type="button" class="shot-btn" data-full="assets/img/IMG_3963-1600.webp"><img src="assets/img/IMG_3963-800.webp" srcset="assets/img/IMG_3963-800.webp 800w, assets/img/IMG_3963-1600.webp 1600w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="800" height="600" loading="lazy" decoding="async" alt="" /><span class="shot-cap">OLED target readout and the Arduino sketch</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="3 team members' hands holding the incubator controller outdoors; the OLED shows FAULT: HEAT OFF" type="button" class="shot-btn" data-full="assets/img/IMG_team-test-1600.webp"><img src="assets/img/IMG_team-test-800.webp" srcset="assets/img/IMG_team-test-800.webp 800w, assets/img/IMG_team-test-1600.webp 1600w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="800" height="1067" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Testing the controller outdoors</span></button></li>
+          <li class="shot" data-cat="planning"><button data-alt="2 team members at a lab table, one inspecting the OLED module on a breadboard" type="button" class="shot-btn" data-full="assets/img/IMG_3959-1600.webp"><img src="assets/img/IMG_3959-800.webp" srcset="assets/img/IMG_3959-800.webp 800w, assets/img/IMG_3959-1600.webp 1600w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="800" height="600" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Checking the OLED module</span></button></li>
+          <li class="shot" data-cat="planning"><button data-alt="Handwritten whiteboard meeting notes about temperature readings, the heat pad and sensor accuracy" type="button" class="shot-btn" data-full="assets/img/IMG_7368-1600.webp"><img src="assets/img/IMG_7368-800.webp" srcset="assets/img/IMG_7368-800.webp 800w, assets/img/IMG_7368-1600.webp 1600w" sizes="(min-width: 1024px) 31vw, (min-width: 480px) 46vw, 92vw" width="800" height="1067" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Whiteboard debug notes</span></button></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-cta">
+        <p>Measurements, field notes and the lab log live on the I/O hub.</p>
+        <a class="btn btn-light" href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">Open the I/O hub &amp; documentation<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a>
+      </div>
+      <div class="grid footer-grid">
+        <div class="footer-brand">
+          <svg class="footer-mark" width="32" height="40" aria-hidden="true"><use href="#i-secchi"/></svg>
+          <p class="footer-wordmark">DVC Pond Research Project</p>
+          <p>MESA DVC Foundation</p>
+          <p>Diablo Valley College Engineering Department</p>
+          <p>Pond ecology and instrumentation</p>
+          <ul class="footer-links">
+            <li><a href="https://www.dvc.edu/" target="_blank" rel="noopener noreferrer">DVC<span class="vh"> (opens in a new tab)</span></a></li>
+            <li><a href="https://www.dvc.edu/academics/learning-communities/mesa-program" target="_blank" rel="noopener noreferrer">MESA DVC<span class="vh"> (opens in a new tab)</span></a></li>
+            <li><a href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">IO documentation<span class="vh"> (opens in a new tab)</span></a></li>
+            <li><a href="https://github.com/ShadowEsu/dvcpondresearch" target="_blank" rel="noopener noreferrer">GitHub<span class="vh"> (opens in a new tab)</span></a></li>
+          </ul>
+        </div>
+        <nav class="footer-col" aria-label="Pages">
+          <p class="footer-title">Pages</p>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="systems.html">Systems &amp; code</a></li>
+            <li><a href="build.html">Build log</a></li>
+            <li><a href="data.html">Data</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="references.html">References</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="Sections">
+          <p class="footer-title">Sections</p>
+          <ul>
+            <li><a href="research.html#mission">Question</a></li>
+            <li><a href="research.html#monitoring">Methods</a></li>
+            <li><a href="data.html#progress">Milestones</a></li>
+            <li><a href="data.html#roadmap">Roadmap</a></li>
+            <li><a href="references.html#cite">Cite</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col">
+          <p class="footer-title">Acknowledgments</p>
+          <ul>
+            <li>MESA DVC Foundation</li>
+            <li>Biology and chemistry lab staff</li>
+            <li>ASDVC Environmental Affairs (partnership exploration)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bar">
+        <p>© <span id="year">2026</span> DVC Pond Research Project. Engineering team informational site.</p>
+        <a href="#top" class="to-top">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Image viewer">
+    <figure class="lb-figure">
+      <img class="lb-img" id="lb-img" src="" alt="" />
+      <figcaption class="lb-cap"><span id="lb-caption"></span> <span class="lb-count" id="lb-count"></span></figcaption>
+    </figure>
+    <button type="button" class="lb-btn lb-close" id="lb-close" aria-label="Close image viewer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" stroke="currentColor" stroke-width="2" fill="none"/></svg></button>
+    <button type="button" class="lb-btn lb-prev" id="lb-prev" aria-label="Previous image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 7 12l8 8" stroke="currentColor" stroke-width="2" fill="none"/></svg></button>
+    <button type="button" class="lb-btn lb-next" id="lb-next" aria-label="Next image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 4 8 8-8 8" stroke="currentColor" stroke-width="2" fill="none"/></svg></button>
+  </dialog>
+
+  <script src="main.js" defer></script>
+</body>
+</html>

@@ -53,29 +53,23 @@
     });
   }
 
-  /* ---------- Active section in the nav ---------- */
-  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav-link"));
-  var linkById = {};
-  navLinks.forEach(function (a) { linkById[a.getAttribute("href").slice(1)] = a; });
-
-  if ("IntersectionObserver" in window) {
-    var sectionObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        navLinks.forEach(function (a) { a.classList.remove("is-active"); a.removeAttribute("aria-current"); });
-        var link = linkById[entry.target.id];
-        if (link) { link.classList.add("is-active"); link.setAttribute("aria-current", "true"); }
-      });
-    }, { rootMargin: "-45% 0px -50% 0px" });
-    Object.keys(linkById).forEach(function (id) {
-      var s = document.getElementById(id);
-      if (s) sectionObserver.observe(s);
-    });
-  }
-
   /* ---------- Hero entrance ---------- */
   var hero = document.querySelector(".hero");
-  requestAnimationFrame(function () { hero.classList.add("is-in"); });
+  if (hero) requestAnimationFrame(function () { hero.classList.add("is-in"); });
+
+  /* ---------- Tab list with media (home: systems) ---------- */
+  Array.prototype.slice.call(document.querySelectorAll("[data-tabs]")).forEach(function (tabs) {
+    var items = Array.prototype.slice.call(tabs.querySelectorAll(".tab"));
+    items.forEach(function (item) {
+      item.querySelector(".tab-btn").addEventListener("click", function () {
+        items.forEach(function (other) {
+          var on = other === item;
+          other.classList.toggle("is-active", on);
+          other.querySelector(".tab-btn").setAttribute("aria-expanded", String(on));
+        });
+      });
+    });
+  });
 
   /* ---------- Water: ripples refract the black-and-white photographs ---------- */
   // Each [data-water] section has an <img> (the still frame, and the no-WebGL / reduced-motion view)
@@ -104,7 +98,7 @@
     "  disp+=vec2(sin(p.y*7.0+t)+0.5*sin(p.y*13.0-t*1.3),cos(p.x*6.0-t*0.9)+0.5*cos(p.x*11.0+t*1.1))*0.0016;",
     "  vec2 tuv=(uv+disp*vec2(uRes.y/uRes.x,1.0))*uScale+uOff;",
     "  vec3 c=texture2D(uTex,clamp(tuv,0.001,0.999)).rgb;",
-    "  float l=dot(c,vec3(0.2126,0.7152,0.0722))*0.9+ring*0.06;",
+    "  float l=dot(c,vec3(0.2126,0.7152,0.0722))+ring*0.06;",
     "  gl_FragColor=vec4(vec3(l),1.0);",
     "}"
   ].join("\n");
@@ -235,11 +229,10 @@
         addRipple(e.clientX, e.clientY, 1);
       });
 
-      if (section === hero) {
+      if (section.getAttribute("data-water") === "hero") {
         // the one orchestrated moment: a drop lands on the photo as the page opens
-        var title = document.querySelector(".hero-title");
-        var r = title.getBoundingClientRect();
-        addRipple(r.left + r.width * 0.6, r.top + r.height * 0.5, 1);
+        var r = cv.getBoundingClientRect();
+        addRipple(r.left + r.width * 0.6, r.top + r.height * 0.45, 1);
         if (hint) {
           hint.textContent = window.matchMedia("(hover: hover)").matches
             ? "Move the pointer across the photo to make ripples."

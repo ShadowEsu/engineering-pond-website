@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Data, milestones and roadmap | DVC Pond Research Project</title>
+  <meta name="description" content="Outputs and live data from the bench and field campaign, milestones for spring 2026, and the engineering roadmap." />
+  <meta property="og:title" content="Data, milestones and roadmap | DVC Pond Research Project" />
+  <meta property="og:description" content="Outputs and live data from the bench and field campaign, milestones for spring 2026, and the engineering roadmap." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shadowesu.github.io/engineering-pond-website/data.html" />
+  <meta property="og:image" content="https://shadowesu.github.io/engineering-pond-website/assets/img/IMG_5968-wide-1376.webp" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23fff' stroke='%23000' stroke-width='2'/%3E%3Cpath d='M16 16V2a14 14 0 0 1 14 14zM16 16v14A14 14 0 0 1 2 16z' fill='%23000'/%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#fafaf9" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400..600&family=Newsreader:opsz,wght@6..72,300..500&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    document.documentElement.classList.add("js");
+    setTimeout(function () { var h = document.querySelector(".hero"); if (h) h.classList.add("is-in"); }, 3000);
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-ext" viewBox="0 0 16 16"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-secchi" viewBox="0 0 32 40"><path d="M16 0v10" style="stroke: var(--rope, currentColor)" stroke-width="1.5"/><circle cx="16" cy="24" r="14" fill="#fff" style="stroke: var(--ring, currentColor)" stroke-width="2"/><path d="M16 24V10a14 14 0 0 1 14 14zM16 24v14A14 14 0 0 1 2 24z" fill="currentColor"/></symbol>
+  </svg>
+
+  <div class="topbar">
+    <p class="wrap">Spring 2026 cohort: active and in progress. <a href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">Open the I/O hub<span class="vh"> (opens in a new tab)</span></a></p>
+  </div>
+  <header class="site-header" id="top">
+    <div class="header-inner wrap">
+      <a class="brand" href="index.html" aria-label="DVC Pond Research Engineers, MESA engineering team: home">
+        <svg class="brand-mark" width="20" height="25" aria-hidden="true"><use href="#i-secchi"/></svg>
+        <span class="brand-title">DVC Pond Research</span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Site">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="research.html">Research</a></li>
+          <li><a class="nav-link" href="systems.html">Systems</a></li>
+          <li><a class="nav-link" href="build.html">Build</a></li>
+          <li><a class="nav-link" href="data.html" aria-current="page">Data</a></li>
+          <li><a class="nav-link" href="team.html">Team</a></li>
+          <li><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li><a class="nav-link" href="references.html">References</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-outline btn-sm" href="references.html#cite">Cite</a>
+        <a class="btn btn-solid btn-sm" href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">I/O hub<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+    <div class="scroll-meter" aria-hidden="true"><span class="scroll-meter-fill"></span></div>
+  </header>
+
+  <main id="main">
+    <section class="section tone-light hero page-hero" id="data" aria-labelledby="data-title">
+      <div class="wrap">
+        <div class="grid hero-grid">
+          <div class="c-l">
+            <p class="eyebrow">Data</p>
+            <h1 class="t-display hero-title" id="data-title"><span class="line"><span>Outputs and</span></span><span class="line"><span>live data</span></span></h1>
+          </div>
+          <div class="hero-side c-r">
+            <p class="lead">Key metrics from the current field and bench campaign. Figures update as the team publishes to the IO hub and ThingSpeak.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tone-alt" aria-labelledby="campaign-title">
+      <div class="wrap">
+        <div class="grid stats-head head-split">
+          <h2 class="t-h2 c-l" id="campaign-title">The campaign by the numbers</h2>
+        </div>
+        <dl class="stat-rows">
+          <div class="grid stat-row"><dt class="c-l">Campus ponds monitored</dt><dd class="c-r">3</dd></div>
+          <div class="grid stat-row"><dt class="c-l">Sensor readings logged (PoC)</dt><dd class="c-r">847</dd></div>
+          <div class="grid stat-row"><dt class="c-l">Public GitHub repositories</dt><dd class="c-r">2</dd></div>
+          <div class="grid stat-row"><dt class="c-l">Active deployment window</dt><dd class="c-r dd-text">Spring 2026</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section tone-light" aria-label="Data sources">
+      <div class="wrap">
+        <div class="cols-3">
+          <article class="data-item">
+            <h3 class="t-h3">ThingSpeak proof of concept</h3>
+            <p>Temperature and humidity channels from bench firmware. The public chart embed will appear here once the channel is public; until then, the dashboard screenshot in <a href="research.html#monitoring">Methods</a> shows the proof-of-concept charts.</p>
+            <a class="text-link" href="https://thingspeak.com" target="_blank" rel="noopener noreferrer">Open ThingSpeak<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a>
+          </article>
+          <article class="data-item">
+            <h3 class="t-h3">Primary data record</h3>
+            <p>Measurements, field notes, and lab documentation on the project IO site.</p>
+            <a class="btn btn-solid" href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">Open IO documentation<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a>
+          </article>
+          <article class="data-item">
+            <h3 class="t-h3">Campaign spreadsheet</h3>
+            <p>Shared Google Sheet for pond runs, timestamps, and notes.</p>
+            <a class="btn btn-outline" href="https://docs.google.com/spreadsheets/d/1jRo4IqDwOE28Zj2VbaXQlAlaqkCJDlxkP3YryVd3gGk/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer">Open spreadsheet<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a>
+          </article>
+        </div>
+        <div class="documents">
+          <h3>Project documents</h3>
+          <ul>
+            <li><a href="https://github.com/ShadowEsu/dvcpondresearch" target="_blank" rel="noopener noreferrer">Planning and README sources (repository)<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a></li>
+            <li><a href="https://github.com/ShadowEsu/Color-Grading-System-Pond-Project-System" target="_blank" rel="noopener noreferrer">Color grading system (repository)<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a></li>
+          </ul>
+          <p class="documents-note">Export PDFs from the linked repositories or request formal reports from the faculty advisor.</p>
+        </div>
+        <p class="updated">Last updated <time datetime="2026-04-17">April 17, 2026</time></p>
+      </div>
+    </section>
+
+    <section class="section tone-light" id="progress" aria-labelledby="progress-title">
+      <div class="wrap">
+        <div class="grid head-split">
+          <h2 class="t-h2 c-l" id="progress-title">Milestones</h2>
+          <p class="lead c-r">Status, spring 2026</p>
+        </div>
+        <ol class="timeline cols-4">
+          <li class="tl tl-done">
+            <span class="tl-step" aria-hidden="true">1</span>
+            <p class="tl-state">Done</p>
+            <h3>Temperature sense sim</h3>
+            <p>Tinkercad incubator path validated for sensor stage; assembly with controller + coil queued.</p>
+          </li>
+          <li class="tl tl-active">
+            <span class="tl-step" aria-hidden="true">2</span>
+            <p class="tl-state">Active</p>
+            <h3>IoT proof of concept</h3>
+            <p>ThingSpeak fields live from bench hardware; OLED local readout.</p>
+          </li>
+          <li class="tl tl-active">
+            <span class="tl-step" aria-hidden="true">3</span>
+            <p class="tl-state">Active</p>
+            <h3>Physical capsule</h3>
+            <p>Insulated prototype on bench with wiring iterations.</p>
+          </li>
+          <li class="tl tl-next">
+            <span class="tl-step" aria-hidden="true">4</span>
+            <p class="tl-state">Next</p>
+            <h3>Hull + waterproofing</h3>
+            <p>3D-printed shell, seals, thruster/servo trade studies, weight budget.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section tone-alt" id="roadmap" aria-labelledby="roadmap-title">
+      <div class="wrap grid" style="row-gap: 48px">
+        <div class="c-l">
+          <h2 class="t-h2" id="roadmap-title">Roadmap and brainstorm</h2>
+          <p class="lead" style="margin-top: 20px">Engineering notes from the 27 Feb 2026 docs</p>
+          <div class="callouts">
+            <div class="callout">
+              <h3>Design risks</h3>
+              <p>Weight vs. buoyancy with multiple sensors; speed vs. drag; weather sealing; solar vs. battery budget; smaller hull means faster iteration.</p>
+            </div>
+            <div class="callout">
+              <h3>Navigation</h3>
+              <p>Sensor fusion for effective robot navigation: research alongside Adafruit fundamentals and GPS tutorials for waypoint logging.</p>
+            </div>
+          </div>
+        </div>
+        <dl class="notebook c-r">
+          <div class="note"><dt>Platforms</dt><dd>3D-printable water surveyor boat; Arduino + Raspberry Pi tiers; robotic fish / ROV-style chassis references.</dd></div>
+          <div class="note"><dt>Sensing</dt><dd>Temperature &amp; pH first; turbidity &amp; dissolved oxygen; general hardness testing; ultrasonic ranging where applicable.</dd></div>
+          <div class="note"><dt>Mechanical</dt><dd>Double-wall concepts; waterproof IP67 enclosures; silicone sealant, gaskets, stainless fasteners; 3D-printed shell.</dd></div>
+          <div class="note"><dt>AI / vision</dt><dd>Evaluate camera + model path to read <strong>test strip colors</strong> vs. lab control swatches (ties to color-grading repo).</dd></div>
+          <div class="note"><dt>Control</dt><dd>PID thermal loop; syringe micro-dosing sketches; induction heating research (Instructables) for lab tooling only, under advisor review.</dd></div>
+          <div class="note"><dt>Blueprint goal</dt><dd><strong>Start with temperature</strong> sensor path, validate in Tinkercad/Wokwi, then layer navigation, power, and waterproofing.</dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-cta">
+        <p>Measurements, field notes and the lab log live on the I/O hub.</p>
+        <a class="btn btn-light" href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">Open the I/O hub &amp; documentation<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a>
+      </div>
+      <div class="grid footer-grid">
+        <div class="footer-brand">
+          <svg class="footer-mark" width="32" height="40" aria-hidden="true"><use href="#i-secchi"/></svg>
+          <p class="footer-wordmark">DVC Pond Research Project</p>
+          <p>MESA DVC Foundation</p>
+          <p>Diablo Valley College Engineering Department</p>
+          <p>Pond ecology and instrumentation</p>
+          <ul class="footer-links">
+            <li><a href="https://www.dvc.edu/" target="_blank" rel="noopener noreferrer">DVC<span class="vh"> (opens in a new tab)</span></a></li>
+            <li><a href="https://www.dvc.edu/academics/learning-communities/mesa-program" target="_blank" rel="noopener noreferrer">MESA DVC<span class="vh"> (opens in a new tab)</span></a></li>
+            <li><a href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">IO documentation<span class="vh"> (opens in a new tab)</span></a></li>
+            <li><a href="https://github.com/ShadowEsu/dvcpondresearch" target="_blank" rel="noopener noreferrer">GitHub<span class="vh"> (opens in a new tab)</span></a></li>
+          </ul>
+        </div>
+        <nav class="footer-col" aria-label="Pages">
+          <p class="footer-title">Pages</p>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="systems.html">Systems &amp; code</a></li>
+            <li><a href="build.html">Build log</a></li>
+            <li><a href="data.html">Data</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="references.html">References</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="Sections">
+          <p class="footer-title">Sections</p>
+          <ul>
+            <li><a href="research.html#mission">Question</a></li>
+            <li><a href="research.html#monitoring">Methods</a></li>
+            <li><a href="data.html#progress">Milestones</a></li>
+            <li><a href="data.html#roadmap">Roadmap</a></li>
+            <li><a href="references.html#cite">Cite</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col">
+          <p class="footer-title">Acknowledgments</p>
+          <ul>
+            <li>MESA DVC Foundation</li>
+            <li>Biology and chemistry lab staff</li>
+            <li>ASDVC Environmental Affairs (partnership exploration)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bar">
+        <p>© <span id="year">2026</span> DVC Pond Research Project. Engineering team informational site.</p>
+        <a href="#top" class="to-top">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>

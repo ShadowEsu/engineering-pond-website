@@ -8,11 +8,22 @@ Static website for the **DVC Pond Research Project** (engineering team). This re
 
 ## What's in this repo
 
-- `index.html` — main page (research narrative: question, methods, systems, heater-controller build log, data, milestones, roadmap, team, gallery, references, citation)
-- `styles.css` — site styles (monochrome palette and type tokens at the top of the file)
-- `main.js` — site behavior (nav, WebGL water ripples over the black-and-white photo sections, milestones line, gallery filters and lightbox, copy citation)
-- `assets/img/` — responsive WebP versions of the photos that the page loads (2 widths each; EXIF/GPS stripped)
-- `assets/` — original photos, kept as source files; the page does not load them
+The site follows harvey.ai's page structure and layout system (6-column grid, 1728px container, 128px section rhythm; type: Newsreader for headings, Hanken Grotesk for text). Each page is plain HTML that shares the header, footer, `styles.css` and `main.js`:
+
+- `index.html` — home: hero, project facts, research/systems cards, build-log teaser, systems tabs, project statement, build steps, big numbers, repositories and records
+- `research.html` — mission and problem framing, at a glance, monitoring and proof of concept (measurement plan, instruments)
+- `systems.html` — growth capsule, control electronics, field robotics, workstreams, repositories and tools
+- `build.html` — heater-controller build log (5 steps)
+- `data.html` — outputs and live data, milestones, roadmap
+- `team.html` — roster, team photos, incubator planning notes
+- `gallery.html` — photo and document gallery with filters and lightbox
+- `references.html` — reference library and how to cite the project
+- `styles.css` — site styles (palette, type scale and grid tokens at the top of the file)
+- `main.js` — site behavior (mobile nav, WebGL water ripples over the black-and-white photo frames, systems tabs, milestones line, gallery filters and lightbox, copy citation)
+- `assets/img/` — responsive WebP versions of the photos that the pages load (EXIF/GPS stripped)
+- `assets/` — original photos, kept as source files; the pages do not load them
+
+Old links into the single-page version (`index.html#team`, `#gallery`, ...) are forwarded to the page that now holds that section.
 
 ### Adding a photo
 
@@ -29,10 +40,11 @@ Photos are shown in black and white by CSS (`filter: grayscale(1)`); the full-si
 
 ### Rolling back
 
+- `v3-before-round3`: round 2, the single-page monochrome editorial version
 - `v2-before-round2`: the first redesign (pond-green, Nov 2026)
 - `v1-before-redesign`: the original site
 
-To restore one: `git checkout <tag> -- index.html styles.css main.js`, commit and push.
+To restore one: `git checkout <tag> -- .` (or just the files you need), commit and push. Round 3 added the separate pages; restoring an older tag leaves them in place unless you delete them.
 
 ## Run locally
 
