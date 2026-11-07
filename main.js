@@ -71,7 +71,27 @@
     });
   });
 
-  /* ---------- Water: ripples refract the black-and-white photographs ---------- */
+  /* ---------- Photos turn to colour once they are scrolled into view, and stay in colour ---------- */
+  var colourImgs = Array.prototype.slice.call(document.querySelectorAll(".photo img, .media-img, .card-photo img, .shot-btn img, .notes-img img"));
+  function colourIn(img) {
+    img.classList.add("is-colour");
+    var water = img.closest("[data-water]");
+    if (water) water.dispatchEvent(new CustomEvent("colour"));
+  }
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    colourImgs.forEach(colourIn);
+  } else {
+    var colourObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        colourObserver.unobserve(entry.target);
+        colourIn(entry.target);
+      });
+    }, { threshold: 0.4 });
+    colourImgs.forEach(function (img) { colourObserver.observe(img); });
+  }
+
+  /* ---------- Water: ripples refract the photographs (black and white, then colour once seen) ---------- */
   // Each [data-water] section has an <img> (the still frame, and the no-WebGL / reduced-motion view)
   // and a <canvas> that redraws the same photo through a moving water surface.
   var waterSections = Array.prototype.slice.call(document.querySelectorAll("[data-water]"));
@@ -79,7 +99,7 @@
 
   var FS = [
     "precision mediump float;",
-    "uniform sampler2D uTex;uniform vec2 uRes;uniform vec2 uScale;uniform vec2 uOff;uniform float uTime;uniform vec4 uRip[4];",
+    "uniform sampler2D uTex;uniform vec2 uRes;uniform vec2 uScale;uniform vec2 uOff;uniform float uTime;uniform vec4 uRip[4];uniform float uCol;",
     "void main(){",
     "  vec2 frag=gl_FragCoord.xy;",
     "  vec2 uv=vec2(frag.x,uRes.y-frag.y)/uRes;",
@@ -98,8 +118,8 @@
     "  disp+=vec2(sin(p.y*7.0+t)+0.5*sin(p.y*13.0-t*1.3),cos(p.x*6.0-t*0.9)+0.5*cos(p.x*11.0+t*1.1))*0.0016;",
     "  vec2 tuv=(uv+disp*vec2(uRes.y/uRes.x,1.0))*uScale+uOff;",
     "  vec3 c=texture2D(uTex,clamp(tuv,0.001,0.999)).rgb;",
-    "  float l=dot(c,vec3(0.2126,0.7152,0.0722))+ring*0.06;",
-    "  gl_FragColor=vec4(vec3(l),1.0);",
+    "  float l=dot(c,vec3(0.2126,0.7152,0.0722));",
+    "  gl_FragColor=vec4(mix(vec3(l),c,uCol)+ring*0.06,1.0);",
     "}"
   ].join("\n");
   var VS = "attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}";
@@ -156,6 +176,10 @@
       var uOff = gl.getUniformLocation(prog, "uOff");
       var uTime = gl.getUniformLocation(prog, "uTime");
       var uRip = gl.getUniformLocation(prog, "uRip");
+      var uCol = gl.getUniformLocation(prog, "uCol");
+      // colour fades in over 0.8 s once the photo has been seen (see "Photos turn to colour" above)
+      var colFrom = img.classList.contains("is-colour") ? -1 : Infinity;
+      section.addEventListener("colour", function () { if (colFrom === Infinity) colFrom = now(); });
       var ripples = new Float32Array(16);
       var ripIndex = 0;
       var start = performance.now();
@@ -186,7 +210,10 @@
       }
 
       function draw() {
-        gl.uniform1f(uTime, now());
+        var t = now();
+        var k = Math.min(1, Math.max(0, (t - colFrom) / 0.8));
+        gl.uniform1f(uCol, k * k * (3 - 2 * k));
+        gl.uniform1f(uTime, t);
         gl.uniform4fv(uRip, ripples);
         gl.drawArrays(gl.TRIANGLES, 0, 3);
       }

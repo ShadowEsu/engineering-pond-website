@@ -19,7 +19,7 @@ The site follows harvey.ai's page structure and layout system (6-column grid, 17
 - `gallery.html` — photo and document gallery with filters and lightbox
 - `references.html` — reference library and how to cite the project
 - `styles.css` — site styles (palette, type scale and grid tokens at the top of the file)
-- `main.js` — site behavior (mobile nav, WebGL water ripples over the black-and-white photo frames, systems tabs, milestones line, gallery filters and lightbox, copy citation)
+- `main.js` — site behavior (mobile nav, scroll-to-colour photos, WebGL water ripples over the photo frames, systems tabs, milestones line, gallery filters and lightbox, copy citation)
 - `assets/img/` — responsive WebP versions of the photos that the pages load (EXIF/GPS stripped)
 - `assets/` — original photos, kept as source files; the pages do not load them
 
@@ -36,7 +36,7 @@ cwebp -q 70 -m 6 -metadata none -resize 1600 0 photo.jpg -o assets/img/photo-160
 
 iPhone HEIC files: convert with `sips -s format jpeg photo.HEIC --out photo.jpg` first, and rotate with `sips -r 90` if the photo was taken in portrait (cwebp ignores the EXIF orientation tag).
 
-Photos are shown in black and white by CSS (`filter: grayscale(1)`); the full-size view in the gallery shows the original colour.
+Photos start in black and white (CSS `filter: grayscale(1)`, only when JavaScript runs) and turn to full colour once they scroll into view, then stay in colour (`main.js`, IntersectionObserver; the water-ripple canvases fade their colour in the same way). With reduced motion, or without JavaScript, photos are in colour straight away.
 
 ### Rolling back
 

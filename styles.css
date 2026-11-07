@@ -181,9 +181,14 @@ figcaption { font-size: 0.875rem; color: var(--muted); line-height: 1.4; }
 
 /* ---------- Photographs ---------- */
 .photo { position: relative; overflow: hidden; border-radius: var(--r-media); background: #d8d6d2; }
-.photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); transition: filter 0.6s var(--ease), transform 1.2s var(--ease); }
-.photo.hover-colour:hover img { filter: grayscale(0); }
-.keep-color img { filter: none; }
+.photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+/* Photos start black and white and turn to full colour once they scroll into view, then stay in colour (main.js).
+   Without JavaScript they are simply in colour. */
+.js .photo img, .js .media-img, .js .card-photo img, .js .shot-btn img, .js .notes-img img {
+  filter: grayscale(1);
+  transition: filter 0.8s var(--ease), transform 1.2s var(--ease);
+}
+.js img.is-colour { filter: none; }
 .media-cap { display: flex; justify-content: space-between; gap: 8px 24px; flex-wrap: wrap; margin-top: 14px; }
 .media-cap .dim { margin-right: 0.5em; color: var(--ink); font-weight: 500; }
 .tone-dark .media-cap .dim { color: var(--on-dark); }
@@ -191,7 +196,7 @@ figcaption { font-size: 0.875rem; color: var(--muted); line-height: 1.4; }
 /* Water frames: the still photo + a canvas that redraws it through moving water (main.js) */
 .water { position: relative; isolation: isolate; overflow: hidden; background: #1a1a1a; }
 .media-img, .media-water { position: absolute; inset: 0; width: 100%; height: 100%; }
-.media-img { object-fit: cover; object-position: 50% var(--pos-y, 50%); filter: grayscale(1); }
+.media-img { object-fit: cover; object-position: 50% var(--pos-y, 50%); }
 .media-water { opacity: 0; transition: opacity 0.8s ease; }
 .media-water.is-ready { opacity: 1; }
 .frame { border-radius: var(--r-media); }
@@ -236,7 +241,7 @@ figcaption { font-size: 0.875rem; color: var(--muted); line-height: 1.4; }
 @media (min-width: 1024px) { .cards-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .card-photo { position: relative; overflow: hidden; aspect-ratio: 3 / 4; color: #fff; text-decoration: none; display: block; background: #222; --focus: #fff; }
 @media (min-width: 640px) { .card-photo { aspect-ratio: 1 / 1; } }
-.card-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) brightness(0.92); transition: transform 1.2s var(--ease); }
+.card-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
 .card-photo:hover img { transform: scale(1.03); }
 /* scrim: every overlaid word sits on at least 70% black, so white text keeps well over 4.5:1 */
 .card-photo::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.7) 34%, rgba(0, 0, 0, 0) 64%); }
@@ -486,8 +491,7 @@ figcaption { font-size: 0.875rem; color: var(--muted); line-height: 1.4; }
 .shot { break-inside: avoid; margin-bottom: calc(var(--gap) + 18px); }
 .shot[hidden] { display: none; }
 .shot-btn { display: block; width: 100%; padding: 0; border: 0; background: none; text-align: left; cursor: zoom-in; }
-.shot-btn img { width: 100%; border-radius: var(--r-media); background: #d8d6d2; filter: grayscale(1); transition: filter 0.5s var(--ease); }
-.shot-btn:hover img, .shot-btn:focus-visible img { filter: grayscale(0); }
+.shot-btn img { width: 100%; border-radius: var(--r-media); background: #d8d6d2; }
 .shot-paper img { background: #fff; padding: 12px; border: 1px solid var(--rule); }
 .shot-cap { display: block; padding: 10px 2px 0; font-size: 0.9375rem; color: var(--ink-2); line-height: 1.35; }
 
