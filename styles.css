@@ -384,8 +384,8 @@ figcaption { font-size: 0.875rem; color: var(--muted); line-height: 1.4; }
 .instruments { margin-top: clamp(72px, 8vw, 128px); }
 .instrument { display: flex; flex-direction: column; gap: 24px; }
 .instrument .photo { aspect-ratio: 4 / 3; }
-.instrument-phone { display: grid; place-items: center; background: var(--dark); }
-.instrument-phone img { width: auto; height: 92%; object-fit: contain; border-radius: 10px; }
+.instrument-phone { background: var(--dark); }
+.photo.instrument-phone img { position: absolute; inset: 4% 0; margin: auto; width: auto; height: 92%; object-fit: contain; border-radius: 10px; }
 .instrument-tags { margin: 8px 0 14px; font-size: 0.875rem; font-weight: 600; color: var(--muted); }
 .instrument p:not(.instrument-tags) { color: var(--ink-2); }
 .ticks { margin-top: 18px; }

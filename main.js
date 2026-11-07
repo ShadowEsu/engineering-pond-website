@@ -81,13 +81,16 @@
   if (reduceMotion || !("IntersectionObserver" in window)) {
     colourImgs.forEach(colourIn);
   } else {
+    // 40% of the photo visible, or (for photos taller than the screen) 40% of the screen filled by it
     var colourObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
+        var screenH = entry.rootBounds ? entry.rootBounds.height : window.innerHeight;
+        if (entry.intersectionRatio < 0.4 && entry.intersectionRect.height < screenH * 0.4) return;
         colourObserver.unobserve(entry.target);
         colourIn(entry.target);
       });
-    }, { threshold: 0.4 });
+    }, { threshold: [0.1, 0.2, 0.3, 0.4] });
     colourImgs.forEach(function (img) { colourObserver.observe(img); });
   }
 
