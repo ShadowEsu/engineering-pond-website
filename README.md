@@ -8,24 +8,31 @@ Static website for the **DVC Pond Research Project** (engineering team). This re
 
 ## What's in this repo
 
-- `index.html` — main page (research narrative: question, methods, systems, data, milestones, roadmap, team, gallery, references, citation)
-- `styles.css` — site styles (palette and type tokens at the top of the file)
-- `main.js` — site behavior (nav, pond-surface WebGL hero, milestones line, gallery filters and lightbox, copy citation)
-- `assets/img/` — responsive WebP versions of the photos that the page loads (480 px and full size)
+- `index.html` — main page (research narrative: question, methods, systems, heater-controller build log, data, milestones, roadmap, team, gallery, references, citation)
+- `styles.css` — site styles (monochrome palette and type tokens at the top of the file)
+- `main.js` — site behavior (nav, WebGL water ripples over the black-and-white photo sections, milestones line, gallery filters and lightbox, copy citation)
+- `assets/img/` — responsive WebP versions of the photos that the page loads (2 widths each; EXIF/GPS stripped)
 - `assets/` — original photos, kept as source files; the page does not load them
 
 ### Adding a photo
 
-Convert it to WebP at 2 widths and reference both in a `srcset`:
+Convert it to WebP at 2 widths (cwebp drops EXIF, including GPS, with `-metadata none`) and reference both in a `srcset`:
 
 ```bash
-cwebp -q 74 -m 6 -metadata none -resize 480 0 photo.jpg -o assets/img/photo-480.webp
-cwebp -q 74 -m 6 -metadata none photo.jpg -o assets/img/photo-1024.webp
+cwebp -q 70 -m 6 -metadata none -resize 800 0 photo.jpg -o assets/img/photo-800.webp
+cwebp -q 70 -m 6 -metadata none -resize 1600 0 photo.jpg -o assets/img/photo-1600.webp
 ```
 
-### Rolling back the 2026-11 redesign
+iPhone HEIC files: convert with `sips -s format jpeg photo.HEIC --out photo.jpg` first, and rotate with `sips -r 90` if the photo was taken in portrait (cwebp ignores the EXIF orientation tag).
 
-The previous design is tagged `v1-before-redesign`. To restore it: `git checkout v1-before-redesign -- index.html styles.css main.js`, commit and push.
+Photos are shown in black and white by CSS (`filter: grayscale(1)`); the full-size view in the gallery shows the original colour.
+
+### Rolling back
+
+- `v2-before-round2`: the first redesign (pond-green, Nov 2026)
+- `v1-before-redesign`: the original site
+
+To restore one: `git checkout <tag> -- index.html styles.css main.js`, commit and push.
 
 ## Run locally
 

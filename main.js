@@ -73,88 +73,66 @@
     });
   }
 
-  /* ---------- Hero entrance + pond surface ---------- */
+  /* ---------- Hero entrance ---------- */
   var hero = document.querySelector(".hero");
   requestAnimationFrame(function () { hero.classList.add("is-in"); });
 
-  var canvas = document.querySelector(".hero-water");
+  /* ---------- Water: ripples refract the black-and-white photographs ---------- */
+  // Each [data-water] section has an <img> (the still frame, and the no-WebGL / reduced-motion view)
+  // and a <canvas> that redraws the same photo through a moving water surface.
+  var waterSections = Array.prototype.slice.call(document.querySelectorAll("[data-water]"));
   var hint = document.querySelector(".hero-hint");
-  if (hint) hint.hidden = true;
-  // The water starts after the page has loaded so it never competes with the first paint.
-  function startWater() { if (canvas) initWater(canvas); }
-  function whenIdle() {
-    if ("requestIdleCallback" in window) requestIdleCallback(startWater, { timeout: 1500 });
-    else setTimeout(startWater, 300);
-  }
-  if (document.readyState === "complete") whenIdle();
-  else window.addEventListener("load", whenIdle, { once: true });
 
-  function initWater(cv) {
-    var gl = cv.getContext("webgl", { antialias: false, alpha: false, premultipliedAlpha: false, preserveDrawingBuffer: false });
+  var FS = [
+    "precision mediump float;",
+    "uniform sampler2D uTex;uniform vec2 uRes;uniform vec2 uScale;uniform vec2 uOff;uniform float uTime;uniform vec4 uRip[4];",
+    "void main(){",
+    "  vec2 frag=gl_FragCoord.xy;",
+    "  vec2 uv=vec2(frag.x,uRes.y-frag.y)/uRes;",
+    "  vec2 p=vec2(frag.x,uRes.y-frag.y)/uRes.y;",
+    "  vec2 disp=vec2(0.);float ring=0.;",
+    "  for(int i=0;i<4;i++){",
+    "    vec4 r=uRip[i];float age=uTime-r.z;",
+    "    if(r.w>0.0&&age>0.0&&age<5.0){",
+    "      vec2 rp=r.xy*vec2(uRes.x/uRes.y,1.0);vec2 d=p-rp;float dist=length(d);",
+    "      float k=dist-age*0.34;",
+    "      float w=sin(k*42.0)*exp(-abs(k)*12.0)*exp(-age*0.9)*r.w;",
+    "      disp+=d/(dist+0.001)*w*0.012;ring+=w;",
+    "    }",
+    "  }",
+    "  float t=uTime*0.5;",
+    "  disp+=vec2(sin(p.y*7.0+t)+0.5*sin(p.y*13.0-t*1.3),cos(p.x*6.0-t*0.9)+0.5*cos(p.x*11.0+t*1.1))*0.0016;",
+    "  vec2 tuv=(uv+disp*vec2(uRes.y/uRes.x,1.0))*uScale+uOff;",
+    "  vec3 c=texture2D(uTex,clamp(tuv,0.001,0.999)).rgb;",
+    "  float l=dot(c,vec3(0.2126,0.7152,0.0722))*0.9+ring*0.06;",
+    "  gl_FragColor=vec4(vec3(l),1.0);",
+    "}"
+  ].join("\n");
+  var VS = "attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}";
+
+  function initWater(section) {
+    var img = section.querySelector(".media-img");
+    var cv = section.querySelector(".media-water");
+    if (!img || !cv) return;
+    var gl = cv.getContext("webgl", { antialias: false, alpha: false, preserveDrawingBuffer: false });
     if (!gl) return;
 
-    var vsSrc = "attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}";
-    var fsSrc = [
-      "precision mediump float;",
-      "uniform vec2 uRes;uniform float uTime;uniform vec4 uRip[4];",
-      "vec2 warp(vec2 p,float t){",
-      "  p+=0.62*vec2(sin(p.y*0.85+t),cos(p.x*0.78-t*0.8));",
-      "  p+=0.28*vec2(sin(p.y*1.9-t*1.3+1.7),cos(p.x*2.05+t*1.1+0.4));",
-      "  return p;}",
-      "float net(vec2 p){float v=abs(sin(p.x)+sin(p.y));return smoothstep(0.62,0.0,v)*0.55+smoothstep(0.14,0.0,v)*0.45;}",
-      "void main(){",
-      "  vec2 uv=gl_FragCoord.xy/uRes;",
-      "  vec2 p=(gl_FragCoord.xy-0.5*uRes)/uRes.y;",
-      "  vec2 disp=vec2(0.);float ring=0.;",
-      "  for(int i=0;i<4;i++){",
-      "    vec4 r=uRip[i];float age=uTime-r.z;",
-      "    if(r.w>0.0&&age>0.0&&age<5.0){",
-      "      vec2 rp=(r.xy*uRes-0.5*uRes)/uRes.y;vec2 d=p-rp;float dist=length(d);",
-      "      float front=age*0.32;float k=dist-front;",
-      "      float env=exp(-abs(k)*14.0)*exp(-age*0.9)*r.w;",
-      "      float w=sin(k*46.0)*env;",
-      "      disp+=d/(dist+0.001)*w*0.05;ring+=max(w,0.0);",
-      "    }",
-      "  }",
-      "  p+=disp;",
-      "  float t=uTime*0.32;",
-      "  vec2 q=p*15.0;",
-      "  float a=net(warp(q,t));float b=net(warp(q*1.42+3.1,t*1.25));",
-      "  float c=a*0.55+b*0.35+a*b*0.9;",
-      "  vec3 bottom=vec3(0.039,0.145,0.137);",
-      "  vec3 top=vec3(0.090,0.290,0.271);",
-      "  vec3 base=mix(bottom,top,smoothstep(0.0,1.0,uv.y));",
-      "  vec3 light=vec3(0.66,0.86,0.81);",
-      "  float side=mix(0.35,1.0,smoothstep(0.15,0.85,uv.x));",
-      "  float depth=mix(0.35,1.0,uv.y);",
-      "  vec3 col=base+light*c*0.34*side*depth+light*ring*0.10;",
-      "  gl_FragColor=vec4(col,1.0);",
-      "}"
-    ].join("\n");
-
-    function compile(type, src) {
-      var s = gl.createShader(type);
-      gl.shaderSource(s, src);
-      gl.compileShader(s);
-      return s;
-    }
-    var vs = compile(gl.VERTEX_SHADER, vsSrc);
-    var fs = compile(gl.FRAGMENT_SHADER, fsSrc);
+    function compile(type, src) { var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; }
     var prog = gl.createProgram();
-    gl.attachShader(prog, vs);
-    gl.attachShader(prog, fs);
+    gl.attachShader(prog, compile(gl.VERTEX_SHADER, VS));
+    gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, FS));
     gl.linkProgram(prog);
 
-    // let the driver compile off the main thread where it can, instead of blocking on the status query
+    // let the driver compile off the main thread where it can
     var parallel = gl.getExtension("KHR_parallel_shader_compile");
-    if (parallel) {
-      (function poll() {
-        if (gl.getProgramParameter(prog, parallel.COMPLETION_STATUS_KHR)) setup();
-        else requestAnimationFrame(poll);
-      })();
-    } else {
-      setup();
-    }
+    (function waitForProgram() {
+      if (parallel && !gl.getProgramParameter(prog, parallel.COMPLETION_STATUS_KHR)) {
+        requestAnimationFrame(waitForProgram);
+        return;
+      }
+      if (img.complete && img.naturalWidth) setup();
+      else img.addEventListener("load", setup, { once: true });
+    })();
 
     function setup() {
       if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
@@ -167,49 +145,65 @@
       gl.enableVertexAttribArray(loc);
       gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
 
+      var tex = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, tex);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+      try {
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, img);
+      } catch (err) {
+        return; // the still photo stays in place
+      }
+
       var uRes = gl.getUniformLocation(prog, "uRes");
+      var uScale = gl.getUniformLocation(prog, "uScale");
+      var uOff = gl.getUniformLocation(prog, "uOff");
       var uTime = gl.getUniformLocation(prog, "uTime");
       var uRip = gl.getUniformLocation(prog, "uRip");
       var ripples = new Float32Array(16);
       var ripIndex = 0;
       var start = performance.now();
       var running = false;
-      var visible = true;
+      var visible = false;
       var raf = 0;
+      var lastDraw = 0;
+      var posY = parseFloat(getComputedStyle(img).objectPosition.split(" ")[1]) / 100;
+      if (isNaN(posY)) posY = 0.5;
 
       function now() { return (performance.now() - start) / 1000; }
 
       function resize() {
-        // the surface is soft, so a reduced resolution keeps it cheap without visible loss
-        var scale = window.innerWidth < 700 ? 0.35 : 0.5;
-        var w = Math.max(1, Math.round(cv.clientWidth * scale));
-        var h = Math.max(1, Math.round(cv.clientHeight * scale));
-        if (cv.width !== w || cv.height !== h) {
-          cv.width = w;
-          cv.height = h;
-          gl.viewport(0, 0, w, h);
-        }
+        var cssW = cv.clientWidth, cssH = cv.clientHeight;
+        var scale = Math.min(window.devicePixelRatio || 1, 1.5);
+        if (cssW * cssH * scale * scale > 2200000) scale = Math.sqrt(2200000 / (cssW * cssH));
+        var w = Math.max(1, Math.round(cssW * scale));
+        var h = Math.max(1, Math.round(cssH * scale));
+        if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; }
+        gl.viewport(0, 0, w, h);
         gl.uniform2f(uRes, w, h);
+        // object-fit: cover, matching the <img> underneath
+        var ca = w / h, ia = img.naturalWidth / img.naturalHeight;
+        var sx = ca > ia ? 1 : ca / ia;
+        var sy = ca > ia ? ia / ca : 1;
+        gl.uniform2f(uScale, sx, sy);
+        gl.uniform2f(uOff, (1 - sx) * 0.5, (1 - sy) * posY);
       }
 
-      function draw(time) {
-        gl.uniform1f(uTime, time);
+      function draw() {
+        gl.uniform1f(uTime, now());
         gl.uniform4fv(uRip, ripples);
         gl.drawArrays(gl.TRIANGLES, 0, 3);
       }
 
-      var lastDraw = 0;
       function frame(ts) {
-        // 30 fps is plenty for slow water and halves the GPU work
-        if (ts - lastDraw >= 32) {
-          lastDraw = ts;
-          draw(now());
-        }
+        if (ts - lastDraw >= 32) { lastDraw = ts; draw(); } // 30 fps is plenty for slow water
         raf = running ? requestAnimationFrame(frame) : 0;
       }
 
-      function setRunning(on) {
-        on = on && visible && !document.hidden && !reduceMotion;
+      function update() {
+        var on = visible && !document.hidden;
         if (on === running) return;
         running = on;
         if (on && !raf) raf = requestAnimationFrame(frame);
@@ -217,65 +211,72 @@
 
       function addRipple(clientX, clientY, strength) {
         var rect = cv.getBoundingClientRect();
-        var x = (clientX - rect.left) / rect.width;
-        var y = 1 - (clientY - rect.top) / rect.height;
         var o = ripIndex * 4;
-        ripples[o] = x; ripples[o + 1] = y; ripples[o + 2] = now(); ripples[o + 3] = strength;
+        ripples[o] = (clientX - rect.left) / rect.width;
+        ripples[o + 1] = (clientY - rect.top) / rect.height;
+        ripples[o + 2] = now();
+        ripples[o + 3] = strength;
         ripIndex = (ripIndex + 1) % 4;
       }
 
       resize();
-      window.addEventListener("resize", function () {
-        resize();
-        if (!running) draw(reduceMotion ? 6 : now());
-      });
-
-      if (reduceMotion) {
-        draw(6);
-        cv.classList.add("is-ready");
-        return;
-      }
-
-      // the one orchestrated moment: a drop lands under the title as the page opens
-      var title = document.querySelector(".hero-title");
-      setTimeout(function () {
-        var r = title.getBoundingClientRect();
-        addRipple(r.left + r.width * 0.55, r.top + r.height * 0.5, 1);
-      }, 450);
+      window.addEventListener("resize", resize);
 
       var lastMove = 0;
-      hero.addEventListener("pointermove", function (e) {
+      section.addEventListener("pointermove", function (e) {
         if (e.pointerType !== "mouse") return;
         var t = performance.now();
         if (t - lastMove < 380) return;
         lastMove = t;
-        addRipple(e.clientX, e.clientY, 0.45);
+        addRipple(e.clientX, e.clientY, 0.5);
       });
-      hero.addEventListener("pointerdown", function (e) {
+      section.addEventListener("pointerdown", function (e) {
         if (e.target.closest("a, button")) return;
         addRipple(e.clientX, e.clientY, 1);
       });
 
-      if (hint) {
-        hint.textContent = window.matchMedia("(hover: hover)").matches
-          ? "Move across the water to make ripples."
-          : "Tap the water to make ripples.";
-        hint.hidden = false;
+      if (section === hero) {
+        // the one orchestrated moment: a drop lands on the photo as the page opens
+        var title = document.querySelector(".hero-title");
+        var r = title.getBoundingClientRect();
+        addRipple(r.left + r.width * 0.6, r.top + r.height * 0.5, 1);
+        if (hint) {
+          hint.textContent = window.matchMedia("(hover: hover)").matches
+            ? "Move the pointer across the photo to make ripples."
+            : "Tap the photo to make ripples.";
+          hint.hidden = false;
+        }
       }
 
-      if ("IntersectionObserver" in window) {
-        new IntersectionObserver(function (entries) {
-          visible = entries[0].isIntersecting;
-          setRunning(true);
-        }).observe(hero);
-      }
-      document.addEventListener("visibilitychange", function () { setRunning(true); });
+      new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting;
+        update();
+      }).observe(section);
+      document.addEventListener("visibilitychange", update);
 
-      draw(0);
+      draw();
       cv.classList.add("is-ready");
-      setRunning(true);
     }
   }
+
+  // Water starts after load (never competing with the first paint), and each section only when it comes near.
+  function startWater() {
+    if (reduceMotion || !("IntersectionObserver" in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        io.unobserve(entry.target);
+        initWater(entry.target);
+      });
+    }, { rootMargin: "300px 0px" });
+    waterSections.forEach(function (s) { io.observe(s); });
+  }
+  function whenIdle() {
+    if ("requestIdleCallback" in window) requestIdleCallback(startWater, { timeout: 1500 });
+    else setTimeout(startWater, 300);
+  }
+  if (document.readyState === "complete") whenIdle();
+  else window.addEventListener("load", whenIdle, { once: true });
 
   /* ---------- Milestones water line ---------- */
   var timeline = document.querySelector(".timeline");

@@ -5,16 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DVC Pond Research Project | Engineering Team</title>
   <meta name="description" content="Diablo Valley College Pond Research Project: engineering prototypes, IoT logging and lab documentation for the 3 campus ponds. MESA DVC Foundation, Spring 2026 cohort." />
-  <meta name="theme-color" content="#0c2b29" />
   <meta property="og:title" content="DVC Pond Research Project | Engineering Team" />
   <meta property="og:description" content="Integrative ecological monitoring of the 3 campus ponds at Diablo Valley College." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://shadowesu.github.io/engineering-pond-website/" />
-  <meta property="og:image" content="https://shadowesu.github.io/engineering-pond-website/assets/img/IMG_9290-768.webp" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23fff' stroke='%230c2b29' stroke-width='2'/%3E%3Cpath d='M16 16V2a14 14 0 0 1 14 14zM16 16v14A14 14 0 0 1 2 16z' fill='%230c2b29'/%3E%3C/svg%3E" />
+  <meta property="og:image" content="https://shadowesu.github.io/engineering-pond-website/assets/img/IMG_5968-1600.webp" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23fff' stroke='%23000' stroke-width='2'/%3E%3Cpath d='M16 16V2a14 14 0 0 1 14 14zM16 16v14A14 14 0 0 1 2 16z' fill='%23000'/%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#000000" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Source+Serif+4:opsz,wght@8..60,300..600&display=swap" />
+  <link rel="preload" as="image" href="assets/img/IMG_5968-1600.webp" imagesrcset="assets/img/IMG_5968-800.webp 800w, assets/img/IMG_5968-1600.webp 1600w" imagesizes="100vw" fetchpriority="high" />
   <link rel="stylesheet" href="styles.css" />
   <script>
     document.documentElement.classList.add("js");
@@ -38,15 +39,12 @@
           <span class="brand-sub">MESA engineering team</span>
         </span>
       </a>
-      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
-        <span class="nav-toggle-bars" aria-hidden="true"></span>
-        <span class="nav-toggle-label">Menu</span>
-      </button>
       <nav class="site-nav" id="site-nav" aria-label="Page sections">
         <ul class="nav-list">
           <li><a class="nav-link" href="#mission">Question</a></li>
           <li><a class="nav-link" href="#monitoring">Methods</a></li>
           <li><a class="nav-link" href="#engineering">Systems</a></li>
+          <li><a class="nav-link" href="#build">Build</a></li>
           <li><a class="nav-link" href="#data">Data</a></li>
           <li><a class="nav-link" href="#progress">Milestones</a></li>
           <li><a class="nav-link" href="#roadmap">Roadmap</a></li>
@@ -56,39 +54,42 @@
           <li><a class="nav-link" href="#cite">Cite</a></li>
         </ul>
       </nav>
+      <a class="btn btn-glass btn-sm header-cta" href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">I/O hub<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+        <span class="nav-toggle-label">Menu</span>
+      </button>
     </div>
     <div class="scroll-meter" aria-hidden="true"><span class="scroll-meter-fill"></span></div>
   </header>
 
   <main id="main">
     <!-- Hero -->
-    <section class="hero" aria-labelledby="hero-title">
-      <canvas class="hero-water" aria-hidden="true"></canvas>
+    <section class="hero water" aria-labelledby="hero-title" data-water="hero">
+      <div class="media">
+        <img class="media-img" src="assets/img/IMG_5968-1600.webp" srcset="assets/img/IMG_5968-800.webp 800w, assets/img/IMG_5968-1600.webp 1600w" sizes="100vw" width="1600" height="2133" alt="Team members' hands wiring an Arduino Nano on a breadboard, with an OLED display and a rotary encoder on a white lab table" fetchpriority="high" style="--pos-y: 62%" />
+        <canvas class="media-water" aria-hidden="true"></canvas>
+      </div>
       <div class="hero-inner wrap">
-        <div class="hero-text">
+        <div class="hero-head">
           <p class="hero-affil">MESA DVC Foundation, Division of Engineering, Spring 2026 cohort</p>
           <h1 class="hero-title" id="hero-title">
             <span class="hero-line"><span>Integrative</span></span>
             <span class="hero-line"><span>ecological</span></span>
             <span class="hero-line"><span>monitoring</span></span>
           </h1>
+        </div>
+        <div class="hero-side">
           <p class="hero-lead">We study and support the 3 campus ponds at Diablo Valley College through reproducible measurements, controlled cultures (~30&nbsp;°C capsule work) and field-ready platforms, documented alongside biology collaborators and published on our IO hub.</p>
           <div class="hero-actions">
-            <a class="btn btn-light" href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">Open the I/O hub &amp; documentation<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a>
-            <a class="btn btn-line" href="#mission">Read the research overview</a>
-            <a class="hero-textlink" href="#engineering">Systems &amp; code</a>
+            <a class="btn btn-white" href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">Open the I/O hub &amp; documentation<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a>
+            <a class="btn btn-glass" href="#mission">Read the research overview</a>
+            <a class="btn btn-glass" href="#engineering">Systems &amp; code</a>
           </div>
         </div>
-        <figure class="hero-figure">
-          <div class="hero-photo">
-            <img src="assets/img/IMG_9301-768.webp" srcset="assets/img/IMG_9301-480.webp 480w, assets/img/IMG_9301-768.webp 768w" sizes="(min-width: 960px) 30vw, 60vw" width="768" height="1024" alt="2 plastic sample bottles with Pond handwritten on the labels" fetchpriority="high" />
-          </div>
-          <figcaption>Sample bottles labelled Pond, in the lab</figcaption>
-        </figure>
       </div>
-      <p class="hero-hint wrap" aria-hidden="true" hidden>Move across the water to make ripples.</p>
-      <div class="hero-facts wrap">
-        <dl class="facts">
+      <div class="hero-foot wrap">
+        <dl class="facts glass-panel">
           <div class="fact">
             <dt>Status</dt>
             <dd>Active and in progress, Spring 2026 cohort</dd>
@@ -110,31 +111,33 @@
             <dd>Water quality, habitat health, faster sampling</dd>
           </div>
         </dl>
-        <p class="hero-fields"><span class="hero-fields-label">Fields</span> Pond ecology, Instrumentation, Open data, Lab and field</p>
+        <div class="hero-meta">
+          <p><span class="dim">Fields</span> Pond ecology, Instrumentation, Open data, Lab and field</p>
+          <p class="hero-cap"><span class="dim">Photo</span> Wiring the heater controller prototype on the lab bench.<span class="hero-hint" hidden></span></p>
+        </div>
       </div>
     </section>
 
     <!-- Question -->
     <section class="section section-question" id="mission" aria-labelledby="mission-title">
       <div class="wrap">
-        <blockquote class="statement">
-          <p>“A multi-disciplinary initiative dedicated to rigorous monitoring and scientific study of campus pond ecosystems through integrated sensor networks, lab cultures, and field-ready platforms.”</p>
-          <cite>Technical overview, DVC Pond Research engineering team</cite>
-        </blockquote>
-
         <div class="question-grid">
           <header class="section-head">
             <h2 id="mission-title">Mission and problem framing</h2>
             <p class="section-sub">Stakeholders, ponds and sampling efficiency</p>
+            <div class="sampling" role="group" aria-label="Manual sampling time">
+              <p class="sampling-figure">2–3<span> hours</span></p>
+              <p class="sampling-text">for a team of 5 to sample the ponds by hand, across multiple sites. Faster, repeatable sampling is the problem this team is working on.</p>
+            </div>
           </header>
           <div class="prose">
             <p>The 3 DVC ponds support turtles, ducks, geese, and other wildlife. Observations note murky water, algae on walls, and occasional stressed fauna; circulation and aeration may be limiting factors. Manual sampling has taken <strong>2–3 hours for a team of 5</strong> across multiple sites, which is slow for decision-grade monitoring.</p>
             <p>We are building <strong>repeatable instrumentation</strong> (lab capsule, bench IoT, and surface/underwater platforms) so biology and engineering can share aligned datasets, from bacteria cultures at ~30&nbsp;°C to field temperature, pH, and turbidity traces.</p>
           </div>
-          <aside class="sampling" aria-label="Manual sampling time">
-            <p class="sampling-figure">2–3<span> hours</span></p>
-            <p class="sampling-text">for a team of 5 to sample the ponds by hand, across multiple sites. Faster, repeatable sampling is the problem this team is working on.</p>
-          </aside>
+          <figure class="question-photo photo">
+            <img src="assets/img/IMG_9301-768.webp" srcset="assets/img/IMG_9301-480.webp 480w, assets/img/IMG_9301-768.webp 768w" sizes="(min-width: 1100px) 24vw, (min-width: 700px) 40vw, 92vw" width="768" height="1024" loading="lazy" decoding="async" alt="2 plastic sample bottles with Pond handwritten on the labels" />
+            <figcaption>Sample bottles labelled Pond, in the lab.</figcaption>
+          </figure>
         </div>
 
         <div class="glance">
@@ -147,6 +150,21 @@
             <li><strong>Funding path</strong><span>Student-government presentation; ASDVC Environmental Affairs partnership.</span></li>
           </ul>
         </div>
+      </div>
+    </section>
+
+    <!-- Full-bleed statement -->
+    <section class="bleed water" aria-label="Project statement" data-water="bleed">
+      <div class="media">
+        <img class="media-img" src="assets/img/IMG_7355-1600.webp" srcset="assets/img/IMG_7355-800.webp 800w, assets/img/IMG_7355-1600.webp 1600w" sizes="100vw" width="1600" height="1200" loading="lazy" decoding="async" alt="Close-up of hands connecting jumper leads to a 2.42-inch OLED display module, with a relay module and a screwdriver on the table" style="--pos-y: 50%" />
+        <canvas class="media-water" aria-hidden="true"></canvas>
+      </div>
+      <div class="bleed-inner wrap">
+        <blockquote class="statement">
+          <p>“A multi-disciplinary initiative dedicated to rigorous monitoring and scientific study of campus pond ecosystems through integrated sensor networks, lab cultures, and field-ready platforms.”</p>
+          <cite>Technical overview, DVC Pond Research engineering team</cite>
+        </blockquote>
+        <p class="bleed-cap"><span class="dim">Photo</span> Connecting jumper leads to the 2.42-inch OLED display module of the heater controller.</p>
       </div>
     </section>
 
@@ -239,6 +257,11 @@
           </div>
         </article>
 
+        <figure class="panel-photo">
+          <img src="assets/img/IMG_5969-1600.webp" srcset="assets/img/IMG_5969-800.webp 800w, assets/img/IMG_5969-1600.webp 1600w" sizes="(min-width: 1320px) 1272px, 94vw" width="1600" height="2133" loading="lazy" decoding="async" alt="Top-down view of the bench: breadboards, a relay module, an OLED display, a rotary encoder, parts bags and a yellow Kapton flexible heater pad" />
+          <figcaption class="glass-panel">Heater controller build, top-down: Arduino Nano on a breadboard, relay module, OLED display, rotary encoder and a flexible Kapton heater pad.</figcaption>
+        </figure>
+
         <article class="feature">
           <figure class="feature-figure feature-figure-wide">
             <img src="assets/img/IMG_9303-1024.webp" srcset="assets/img/IMG_9303-480.webp 480w, assets/img/IMG_9303-1024.webp 1024w" sizes="(min-width: 960px) 40vw, 92vw" width="1024" height="768" loading="lazy" decoding="async" alt="Lab carts holding a heating mantle, tubing and vacuum pumps" />
@@ -289,6 +312,84 @@
             </li>
           </ul>
         </div>
+      </div>
+    </section>
+
+    <!-- Build log -->
+    <section class="build" id="build" aria-labelledby="build-title">
+      <div class="bleed bleed-short water" data-water="build">
+        <div class="media">
+          <img class="media-img" src="assets/img/IMG_7357-1600.webp" srcset="assets/img/IMG_7357-800.webp 800w, assets/img/IMG_7357-1600.webp 1600w" sizes="100vw" width="1600" height="1200" loading="lazy" decoding="async" alt="Close-up of hands placing a rotary encoder next to a relay module and an Arduino Nano on a breadboard" style="--pos-y: 60%" />
+          <canvas class="media-water" aria-hidden="true"></canvas>
+        </div>
+        <div class="bleed-inner wrap">
+          <h2 class="bleed-title" id="build-title">Building the heater controller</h2>
+          <p class="bleed-lead">How the capsule's temperature controller moved from simulation to the bench, in the team's own photos.</p>
+        </div>
+      </div>
+      <div class="wrap">
+        <ol class="steps">
+          <li class="step">
+            <div class="step-text">
+              <p class="step-num" aria-hidden="true">1</p>
+              <h3>Simulate</h3>
+              <p>The incubator circuit runs in a Wokwi simulation before any wiring. The serial log prints lines such as “Temp: 32.00 C | Target: 31.0 C | Heater: OFF”.</p>
+            </div>
+            <figure class="step-media photo">
+              <img src="assets/img/IMG_3958-1600.webp" srcset="assets/img/IMG_3958-800.webp 800w, assets/img/IMG_3958-1600.webp 1600w" sizes="(min-width: 960px) 58vw, 92vw" width="1600" height="1200" loading="lazy" decoding="async" alt="A team member at a laptop running a Wokwi simulation of the incubator circuit, with the serial log on screen" />
+            </figure>
+          </li>
+          <li class="step">
+            <div class="step-text">
+              <p class="step-num" aria-hidden="true">2</p>
+              <h3>Wire</h3>
+              <p>On the bench the circuit is wired on a breadboard: an Arduino Nano, a 2.42-inch OLED display, a rotary encoder and a relay module.</p>
+            </div>
+            <div class="step-media step-pair">
+              <figure class="photo">
+                <img src="assets/img/IMG_7352-1600.webp" srcset="assets/img/IMG_7352-800.webp 800w, assets/img/IMG_7352-1600.webp 1600w" sizes="(min-width: 960px) 36vw, 92vw" width="1600" height="1200" loading="lazy" decoding="async" alt="2 team members wiring a breadboard with an OLED display, a rotary encoder and screwdrivers on the table" />
+              </figure>
+              <figure class="photo">
+                <img src="assets/img/IMG_7359-800.webp" srcset="assets/img/IMG_7359-800.webp 800w, assets/img/IMG_7359-1600.webp 1600w" sizes="(min-width: 960px) 20vw, 45vw" width="800" height="1067" loading="lazy" decoding="async" alt="Top-down view of an Arduino Nano on a breadboard with many jumper wires and a rotary encoder" />
+              </figure>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-text">
+              <p class="step-num" aria-hidden="true">3</p>
+              <h3>Code and display</h3>
+              <p>The Arduino sketch uses the OneWire, DallasTemperature and SSD1306 libraries. The OLED shows the controller state, here “Incubator, Target: 30.0 C”.</p>
+            </div>
+            <figure class="step-media photo">
+              <img src="assets/img/IMG_3963-1600.webp" srcset="assets/img/IMG_3963-800.webp 800w, assets/img/IMG_3963-1600.webp 1600w" sizes="(min-width: 960px) 58vw, 92vw" width="1600" height="1200" loading="lazy" decoding="async" alt="An OLED display reading Incubator, Target: 30.0 C next to a laptop showing the Arduino IDE sketch" />
+            </figure>
+          </li>
+          <li class="step">
+            <div class="step-text">
+              <p class="step-num" aria-hidden="true">4</p>
+              <h3>Test</h3>
+              <p>The controller is taken outside and handled as a unit. Both readouts show fault messages: “FAULT: HEAT OFF” with a prompt to check the sensor / temp, and “Target: 36.9 C” with “FAULT: HEAT OFF”.</p>
+            </div>
+            <div class="step-media step-pair">
+              <figure class="photo">
+                <img src="assets/img/IMG_team-test-800.webp" srcset="assets/img/IMG_team-test-800.webp 800w, assets/img/IMG_team-test-1600.webp 1600w" sizes="(min-width: 960px) 28vw, 45vw" width="800" height="1067" loading="lazy" decoding="async" alt="3 team members' hands holding the incubator controller outdoors; the OLED shows FAULT: HEAT OFF and Check sensor / temp" />
+              </figure>
+              <figure class="photo">
+                <img src="assets/img/IMG_5971-800.webp" srcset="assets/img/IMG_5971-800.webp 800w, assets/img/IMG_5971-1600.webp 1600w" sizes="(min-width: 960px) 28vw, 45vw" width="800" height="1067" loading="lazy" decoding="async" alt="Hands holding the wired heater controller outdoors; its OLED reads Target: 36.9 C and FAULT: HEAT OFF" />
+              </figure>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-text">
+              <p class="step-num" aria-hidden="true">5</p>
+              <h3>Debug notes</h3>
+              <p>The whiteboard from a team meeting lists what to fix next: a code error from the last meeting, averaging the temperature over 3 readings, connecting the heat pad, and a temperature sensor that was not accurate, with the open question of whether the code or the process was at fault.</p>
+            </div>
+            <figure class="step-media step-media-narrow photo keep-color">
+              <img src="assets/img/IMG_7368-800.webp" srcset="assets/img/IMG_7368-800.webp 800w, assets/img/IMG_7368-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 92vw" width="800" height="1067" loading="lazy" decoding="async" alt="Handwritten whiteboard notes: manual temp, code error last meeting, average temp take 3 data, heat pad to connect, connect wire last meeting, the temp sensor not accurate" />
+            </figure>
+          </li>
+        </ol>
       </div>
     </section>
 
@@ -437,8 +538,12 @@
             </li>
           </ul>
           <div class="team-media">
+            <figure class="team-photo team-photo-wide">
+              <img src="assets/img/IMG_3959-1600.webp" srcset="assets/img/IMG_3959-800.webp 800w, assets/img/IMG_3959-1600.webp 1600w" sizes="(min-width: 960px) 40vw, 92vw" width="1600" height="1200" loading="lazy" decoding="async" alt="2 team members at a lab table, one inspecting the OLED module on a breadboard, with slides projected behind them" />
+              <figcaption>Checking the OLED module at the lab table.</figcaption>
+            </figure>
             <figure class="team-photo">
-              <img src="assets/img/IMG_9305-768.webp" srcset="assets/img/IMG_9305-480.webp 480w, assets/img/IMG_9305-768.webp 768w" sizes="(min-width: 960px) 34vw, 92vw" width="768" height="1024" loading="lazy" decoding="async" alt="2 team members working on laptops at a lab bench" />
+              <img src="assets/img/IMG_9305-768.webp" srcset="assets/img/IMG_9305-480.webp 480w, assets/img/IMG_9305-768.webp 768w" sizes="(min-width: 960px) 20vw, 45vw" width="768" height="1024" loading="lazy" decoding="async" alt="2 team members working on laptops at a lab bench" />
               <figcaption>Working session at the lab bench.</figcaption>
             </figure>
             <figure class="team-notes">
@@ -468,6 +573,9 @@
         </header>
         <p class="vh" id="gallery-status" aria-live="polite"></p>
         <ul class="gallery" id="gallery-grid">
+          <li class="shot" data-cat="electronics"><button data-alt="Hands wiring an Arduino Nano on a breadboard, with an OLED display and a rotary encoder" type="button" class="shot-btn" data-full="assets/img/IMG_5968-1600.webp"><img src="assets/img/IMG_5968-800.webp" width="800" height="1067" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Wiring the heater controller prototype</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="Top-down view of the bench with breadboards, a relay module, an OLED display, parts bags and a yellow Kapton heater pad" type="button" class="shot-btn" data-full="assets/img/IMG_5969-1600.webp"><img src="assets/img/IMG_5969-800.webp" width="800" height="1067" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Heater controller parts and Kapton heater pad</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="Hands holding the wired heater controller outdoors; the OLED reads Target: 36.9 C and FAULT: HEAT OFF" type="button" class="shot-btn" data-full="assets/img/IMG_5971-1600.webp"><img src="assets/img/IMG_5971-800.webp" width="800" height="1067" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Heater controller tested outdoors</span></button></li>
           <li class="shot" data-cat="electronics"><button data-alt="ThingSpeak charts for temperature and humidity" type="button" class="shot-btn" data-full="assets/img/image-9a50-460.webp"><img src="assets/img/image-9a50-460.webp" width="460" height="1024" loading="lazy" decoding="async" alt="" /><span class="shot-cap">ThingSpeak charts for temperature and humidity</span></button></li>
           <li class="shot" data-cat="electronics"><button data-alt="ESP8266 breadboard prototype" type="button" class="shot-btn" data-full="assets/img/image-a8b3-771.webp"><img src="assets/img/image-a8b3-480.webp" width="480" height="637" loading="lazy" decoding="async" alt="" /><span class="shot-cap">ESP8266 breadboard prototype</span></button></li>
           <li class="shot" data-cat="capsule"><button data-alt="Capsule prototype on bench" type="button" class="shot-btn" data-full="assets/img/IMG_9290-768.webp"><img src="assets/img/IMG_9290-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Capsule prototype on bench</span></button></li>
@@ -489,6 +597,15 @@
           <li class="shot" data-cat="lab"><button data-alt="Glassware in storage bins" type="button" class="shot-btn" data-full="assets/img/IMG_9300-768.webp"><img src="assets/img/IMG_9300-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Glassware in storage bins</span></button></li>
           <li class="shot" data-cat="lab"><button data-alt="Hot plate and instruments on a cart" type="button" class="shot-btn" data-full="assets/img/IMG_9299-768.webp"><img src="assets/img/IMG_9299-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Hot plate and instruments on a cart</span></button></li>
           <li class="shot" data-cat="lab"><button data-alt="Heating mantles and tubing in a cart basket" type="button" class="shot-btn" data-full="assets/img/IMG_9304-1024.webp"><img src="assets/img/IMG_9304-480.webp" width="480" height="360" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Heating mantles and tubing</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="A team member at a laptop running a Wokwi simulation of the incubator circuit" type="button" class="shot-btn" data-full="assets/img/IMG_3958-1600.webp"><img src="assets/img/IMG_3958-800.webp" width="800" height="600" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Wokwi simulation of the incubator circuit</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="2 team members wiring a breadboard with an OLED display and a rotary encoder" type="button" class="shot-btn" data-full="assets/img/IMG_7352-1600.webp"><img src="assets/img/IMG_7352-800.webp" width="800" height="600" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Wiring the breadboard</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="Hands connecting jumper leads to a 2.42-inch OLED display module, relay module behind" type="button" class="shot-btn" data-full="assets/img/IMG_7355-1600.webp"><img src="assets/img/IMG_7355-800.webp" width="800" height="600" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Connecting the 2.42-inch OLED</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="Relay module, rotary encoder and Arduino Nano on a breadboard" type="button" class="shot-btn" data-full="assets/img/IMG_7357-1600.webp"><img src="assets/img/IMG_7357-800.webp" width="800" height="600" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Relay module, encoder and Nano</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="Top-down view of an Arduino Nano on a breadboard with jumper wires and a rotary encoder" type="button" class="shot-btn" data-full="assets/img/IMG_7359-1600.webp"><img src="assets/img/IMG_7359-800.webp" width="800" height="1067" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Nano and jumper wiring, top-down</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="OLED reading Incubator, Target: 30.0 C beside a laptop showing the Arduino IDE sketch" type="button" class="shot-btn" data-full="assets/img/IMG_3963-1600.webp"><img src="assets/img/IMG_3963-800.webp" width="800" height="600" loading="lazy" decoding="async" alt="" /><span class="shot-cap">OLED target readout and the Arduino sketch</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="3 team members' hands holding the incubator controller outdoors; the OLED shows FAULT: HEAT OFF" type="button" class="shot-btn" data-full="assets/img/IMG_team-test-1600.webp"><img src="assets/img/IMG_team-test-800.webp" width="800" height="1067" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Testing the controller outdoors</span></button></li>
+          <li class="shot" data-cat="planning"><button data-alt="2 team members at a lab table, one inspecting the OLED module on a breadboard" type="button" class="shot-btn" data-full="assets/img/IMG_3959-1600.webp"><img src="assets/img/IMG_3959-800.webp" width="800" height="600" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Checking the OLED module</span></button></li>
+          <li class="shot" data-cat="planning"><button data-alt="Handwritten whiteboard meeting notes about temperature readings, the heat pad and sensor accuracy" type="button" class="shot-btn" data-full="assets/img/IMG_7368-1600.webp"><img src="assets/img/IMG_7368-800.webp" width="800" height="1067" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Whiteboard debug notes</span></button></li>
         </ul>
       </div>
     </section>
@@ -573,7 +690,7 @@
     <div class="wrap footer-grid">
       <div class="footer-brand">
         <svg class="footer-mark" width="40" height="50" aria-hidden="true"><use href="#i-secchi"/></svg>
-        <p class="footer-title">DVC Pond Research Project</p>
+        <p class="footer-wordmark">DVC Pond Research Project</p>
         <p>MESA DVC Foundation</p>
         <p>Diablo Valley College Engineering Department</p>
         <p class="footer-muted">Pond ecology and instrumentation</p>
@@ -590,6 +707,7 @@
           <li><a href="#mission">Question</a></li>
           <li><a href="#monitoring">Methods</a></li>
           <li><a href="#engineering">Systems &amp; code</a></li>
+          <li><a href="#build">Build log</a></li>
           <li><a href="#data">Data</a></li>
           <li><a href="#progress">Milestones</a></li>
           <li><a href="#roadmap">Roadmap</a></li>
