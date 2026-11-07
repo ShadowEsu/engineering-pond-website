@@ -8,10 +8,24 @@ Static website for the **DVC Pond Research Project** (engineering team). This re
 
 ## What's in this repo
 
-- `index.html` — main page
-- `styles.css` — site styles
-- `main.js` — site behavior (nav, reveal animations, lightbox, etc.)
-- `assets/` — images and media used on the page
+- `index.html` — main page (research narrative: question, methods, systems, data, milestones, roadmap, team, gallery, references, citation)
+- `styles.css` — site styles (palette and type tokens at the top of the file)
+- `main.js` — site behavior (nav, pond-surface WebGL hero, milestones line, gallery filters and lightbox, copy citation)
+- `assets/img/` — responsive WebP versions of the photos that the page loads (480 px and full size)
+- `assets/` — original photos, kept as source files; the page does not load them
+
+### Adding a photo
+
+Convert it to WebP at 2 widths and reference both in a `srcset`:
+
+```bash
+cwebp -q 74 -m 6 -metadata none -resize 480 0 photo.jpg -o assets/img/photo-480.webp
+cwebp -q 74 -m 6 -metadata none photo.jpg -o assets/img/photo-1024.webp
+```
+
+### Rolling back the 2026-11 redesign
+
+The previous design is tagged `v1-before-redesign`. To restore it: `git checkout v1-before-redesign -- index.html styles.css main.js`, commit and push.
 
 ## Run locally
 

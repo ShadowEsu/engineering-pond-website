@@ -2,680 +2,628 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Diablo Valley College Pond Research Project — engineering prototypes, IoT logging, and lab documentation. MESA DVC Foundation." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DVC Pond Research Project | Engineering Team</title>
+  <meta name="description" content="Diablo Valley College Pond Research Project: engineering prototypes, IoT logging and lab documentation for the 3 campus ponds. MESA DVC Foundation, Spring 2026 cohort." />
+  <meta name="theme-color" content="#0c2b29" />
+  <meta property="og:title" content="DVC Pond Research Project | Engineering Team" />
+  <meta property="og:description" content="Integrative ecological monitoring of the 3 campus ponds at Diablo Valley College." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shadowesu.github.io/engineering-pond-website/" />
+  <meta property="og:image" content="https://shadowesu.github.io/engineering-pond-website/assets/img/IMG_9290-768.webp" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23fff' stroke='%230c2b29' stroke-width='2'/%3E%3Cpath d='M16 16V2a14 14 0 0 1 14 14zM16 16v14A14 14 0 0 1 2 16z' fill='%230c2b29'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script>
+    document.documentElement.classList.add("js");
+    setTimeout(function () { var h = document.querySelector(".hero"); if (h) h.classList.add("is-in"); }, 3000);
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-ext" viewBox="0 0 16 16"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-secchi" viewBox="0 0 32 40"><path d="M16 0v10" style="stroke: var(--rope, currentColor)" stroke-width="1.5"/><circle cx="16" cy="24" r="14" fill="#fff" style="stroke: var(--ring, currentColor)" stroke-width="2"/><path d="M16 24V10a14 14 0 0 1 14 14zM16 24v14A14 14 0 0 1 2 24z" fill="currentColor"/></symbol>
+  </svg>
+
   <header class="site-header" id="top">
-    <div class="header-navbar">
-      <div class="header-navbar-inner container-wide">
-        <div class="header-brand-row">
-          <a class="logo logo--nav logo--wordmark" href="#top">
-            <span class="logo-text-block">
-              <span class="logo-title">DVC POND RESEARCH ENGINEERS</span>
-              <span class="logo-affiliation">MESA · Engineering team</span>
-            </span>
-          </a>
-          <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-drawer">
-            <span class="material-symbols-outlined nav-toggle-icon" aria-hidden="true">menu</span>
-            <span class="visually-hidden">Menu</span>
-          </button>
-        </div>
-        <nav class="nav" aria-label="Page sections">
-          <div id="nav-drawer" class="nav-drawer">
-            <ul id="nav-menu" class="nav-list nav-list--sections">
-              <li><a class="nav-link" href="#data" data-section="data">Data</a></li>
-              <li><a class="nav-link" href="#mission" data-section="mission">Overview</a></li>
-              <li><a class="nav-link" href="#monitoring" data-section="monitoring">Instrumentation</a></li>
-              <li><a class="nav-link" href="#roadmap" data-section="roadmap">Roadmap</a></li>
-              <li><a class="nav-link" href="#team" data-section="team">People</a></li>
-              <li><a class="nav-link" href="#engineering" data-section="engineering">Systems &amp; Code</a></li>
-              <li><a class="nav-link" href="#progress" data-section="progress">Progress</a></li>
-              <li><a class="nav-link" href="#resources" data-section="resources">References</a></li>
-              <li><a class="nav-link" href="#cite" data-section="cite">Cite</a></li>
-              <li><a class="nav-link" href="#gallery" data-section="gallery">Media</a></li>
-            </ul>
-          </div>
-        </nav>
-      </div>
+    <div class="header-inner wrap">
+      <a class="brand" href="#top" aria-label="DVC Pond Research Engineers, back to top">
+        <svg class="brand-mark" width="22" height="28" aria-hidden="true"><use href="#i-secchi"/></svg>
+        <span class="brand-text">
+          <span class="brand-title">DVC Pond Research Engineers</span>
+          <span class="brand-sub">MESA engineering team</span>
+        </span>
+      </a>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+        <span class="nav-toggle-label">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Page sections">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="#mission">Question</a></li>
+          <li><a class="nav-link" href="#monitoring">Methods</a></li>
+          <li><a class="nav-link" href="#engineering">Systems</a></li>
+          <li><a class="nav-link" href="#data">Data</a></li>
+          <li><a class="nav-link" href="#progress">Milestones</a></li>
+          <li><a class="nav-link" href="#roadmap">Roadmap</a></li>
+          <li><a class="nav-link" href="#team">Team</a></li>
+          <li><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li><a class="nav-link" href="#resources">References</a></li>
+          <li><a class="nav-link" href="#cite">Cite</a></li>
+        </ul>
+      </nav>
     </div>
+    <div class="scroll-meter" aria-hidden="true"><span class="scroll-meter-fill"></span></div>
   </header>
 
   <main id="main">
-    <section class="hero hero--stitch">
-      <div class="hero-visual">
-        <img class="hero-visual-img" src="assets/image-a8b3d238-3db9-4907-aa1e-0365a727f5cf.png" alt="ESP8266 breadboard prototype with OLED display and environmental sensors on a windowsill" width="1200" height="900" />
-        <div class="hero-visual-gradient" aria-hidden="true"></div>
-        <div class="hero-visual-inner container-wide">
-          <div class="hero-visual-badge-row hero-stagger hero-stagger-1">
-            <span class="hero-status-pill">ACTIVE STATUS</span>
-            <span class="hero-status-led" aria-hidden="true"></span>
-          </div>
-          <h1 class="hero-visual-title hero-stagger hero-stagger-3">
-            <span class="hero-visual-title-line">Integrative ecological monitoring</span>
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <canvas class="hero-water" aria-hidden="true"></canvas>
+      <div class="hero-inner wrap">
+        <div class="hero-text">
+          <p class="hero-affil">MESA DVC Foundation, Division of Engineering, Spring 2026 cohort</p>
+          <h1 class="hero-title" id="hero-title">
+            <span class="hero-line"><span>Integrative</span></span>
+            <span class="hero-line"><span>ecological</span></span>
+            <span class="hero-line"><span>monitoring</span></span>
           </h1>
-          <p class="hero-visual-kicker hero-stagger hero-stagger-4">MESA DVC Foundation · Division of Engineering · Spring 2026 Cohort</p>
-        </div>
-      </div>
-      <div class="hero-below">
-        <div class="hero-content container-wide">
-          <blockquote class="hero-quote hero-stagger hero-stagger-2">
-            <p>“A multi-disciplinary initiative dedicated to rigorous monitoring and scientific study of campus pond ecosystems through integrated sensor networks, lab cultures, and field-ready platforms.”</p>
-            <cite>Technical overview — DVC Pond Research engineering team</cite>
-          </blockquote>
-          <div class="hero-trust hero-stagger hero-stagger-5">
-            <a class="hero-trust-item hero-trust-item--link" href="https://www.dvc.edu/" target="_blank" rel="noopener noreferrer">
-              <span class="hero-trust-logo hero-trust-logo--dvc" aria-hidden="true">DVC</span>
-              <span class="hero-trust-name">Diablo Valley College</span>
-            </a>
-            <a class="hero-trust-item hero-trust-item--link" href="https://www.dvc.edu/academics/learning-communities/mesa-program" target="_blank" rel="noopener noreferrer">
-              <span class="hero-trust-logo hero-trust-logo--mesa" aria-hidden="true">MESA</span>
-              <span class="hero-trust-name">MESA at DVC</span>
-            </a>
-          </div>
-          <p class="hero-status hero-stagger hero-stagger-2b"><span class="hero-status-dot" aria-hidden="true"></span> Active · In progress · Spring 2026 cohort</p>
-          <div class="hero-tags hero-stagger hero-stagger-5b">
-            <span class="hero-chip">Pond ecology</span>
-            <span class="hero-chip">Instrumentation</span>
-            <span class="hero-chip">Open data</span>
-            <span class="hero-chip">Lab and field</span>
-          </div>
-          <p class="hero-lead hero-stagger hero-stagger-6">
-            We study and support the three campus ponds through reproducible measurements, controlled cultures (~30&nbsp;°C capsule work), and field-ready platforms—documented alongside biology collaborators and published on our IO hub.
-          </p>
-          <div class="hero-actions hero-stagger hero-stagger-7">
-            <a class="btn btn-primary" href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer"><span class="btn-label">I/O hub &amp; documentation</span><span class="material-symbols-outlined btn-icon" aria-hidden="true">arrow_forward</span></a>
-            <a class="btn btn-ghost" href="#engineering">Systems &amp; Code</a>
-            <a class="btn btn-ghost" href="#mission">Research overview</a>
-          </div>
-          <ul class="hero-highlights hero-stagger hero-stagger-8">
-            <li class="hero-highlight">
-              <span class="hero-highlight-label">Primary record</span>
-              <a href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">Measurements, notes, lab log ↗</a>
-            </li>
-            <li class="hero-highlight">
-              <span class="hero-highlight-label">Artifacts</span>
-              <span>GitHub repos · Tinkercad · ThingSpeak PoC</span>
-            </li>
-            <li class="hero-highlight">
-              <span class="hero-highlight-label">Focus</span>
-              <span>Water quality · habitat health · faster sampling</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-data" id="data" aria-labelledby="data-heading">
-      <div class="container-wide section-data-inner">
-        <div class="section-data-header">
-          <p class="section-label" id="data-heading">Outputs and live data</p>
-          <p class="section-data-lead">Key metrics from the current field and bench campaign. Figures update as the team publishes to the IO hub and ThingSpeak.</p>
-        </div>
-        <div class="stats-bar">
-          <div class="stat-item">
-            <span class="stat-value">3</span>
-            <span class="stat-label">Campus ponds monitored</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-value">847</span>
-            <span class="stat-label">Sensor readings logged (PoC)</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-value">2</span>
-            <span class="stat-label">Public GitHub repositories</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-value">Spring 2026</span>
-            <span class="stat-label">Active deployment window</span>
+          <p class="hero-lead">We study and support the 3 campus ponds at Diablo Valley College through reproducible measurements, controlled cultures (~30&nbsp;°C capsule work) and field-ready platforms, documented alongside biology collaborators and published on our IO hub.</p>
+          <div class="hero-actions">
+            <a class="btn btn-light" href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">Open the I/O hub &amp; documentation<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a>
+            <a class="btn btn-line" href="#mission">Read the research overview</a>
+            <a class="hero-textlink" href="#engineering">Systems &amp; code</a>
           </div>
         </div>
-        <div class="live-data-grid">
-          <div class="live-data-card">
-            <h3 class="live-data-title">ThingSpeak proof of concept</h3>
-            <p class="live-data-desc">Temperature and humidity channels from bench firmware. Replace the URL below with your public ThingSpeak chart embed when the channel is public.</p>
-            <div class="embed-frame" title="ThingSpeak embed placeholder">
-              <p class="embed-placeholder">Embed: <code>https://thingspeak.com/channels/YOUR_ID/charts/1</code></p>
-              <a class="text-link-external" href="https://thingspeak.com" target="_blank" rel="noopener noreferrer">Open ThingSpeak ↗</a>
-            </div>
+        <figure class="hero-figure">
+          <div class="hero-photo">
+            <img src="assets/img/IMG_9301-768.webp" srcset="assets/img/IMG_9301-480.webp 480w, assets/img/IMG_9301-768.webp 768w" sizes="(min-width: 960px) 30vw, 60vw" width="768" height="1024" alt="2 plastic sample bottles with Pond handwritten on the labels" fetchpriority="high" />
           </div>
-          <div class="live-data-card">
-            <h3 class="live-data-title">Primary data record</h3>
-            <p class="live-data-desc">Measurements, field notes, and lab documentation on the project IO site.</p>
-            <a class="btn btn-primary btn-sm" href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">Open IO documentation ↗</a>
-          </div>
-          <div class="live-data-card">
-            <h3 class="live-data-title">Campaign spreadsheet</h3>
-            <p class="live-data-desc">Shared Google Sheet for pond runs, timestamps, and notes.</p>
-            <a class="btn btn-ghost" href="https://docs.google.com/spreadsheets/d/1jRo4IqDwOE28Zj2VbaXQlAlaqkCJDlxkP3YryVd3gGk/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer">Open spreadsheet ↗</a>
-          </div>
-        </div>
-        <div class="documents-row">
-          <h3 class="documents-title">Project documents</h3>
-          <ul class="documents-list">
-            <li><a class="doc-link" href="https://github.com/ShadowEsu/dvcpondresearch" target="_blank" rel="noopener noreferrer"><span class="doc-icon" aria-hidden="true">PDF</span> Planning and README sources (repository) ↗</a></li>
-            <li><a class="doc-link" href="https://github.com/ShadowEsu/Color-Grading-System-Pond-Project-System" target="_blank" rel="noopener noreferrer"><span class="doc-icon" aria-hidden="true">↗</span> Color grading system (repository) ↗</a></li>
-          </ul>
-          <p class="documents-note">Export PDFs from the linked repositories or request formal reports from the faculty advisor.</p>
-        </div>
-        <p class="last-updated">Last updated <time datetime="2026-04-17">April 17, 2026</time></p>
-      </div>
-    </section>
-
-    <div class="page-shell container-wide">
-      <aside class="toc-sidebar" aria-label="On this page">
-        <p class="toc-heading">On this page</p>
-        <nav class="toc-nav">
-          <ul class="toc-list">
-            <li><a class="toc-link" href="#data" data-toc="data">Data</a></li>
-            <li><a class="toc-link" href="#mission" data-toc="mission">Overview</a></li>
-            <li><a class="toc-link" href="#monitoring" data-toc="monitoring">Instrumentation</a></li>
-            <li><a class="toc-link" href="#roadmap" data-toc="roadmap">Roadmap</a></li>
-            <li><a class="toc-link" href="#team" data-toc="team">People</a></li>
-            <li><a class="toc-link" href="#engineering" data-toc="engineering">Systems &amp; Code</a></li>
-            <li><a class="toc-link" href="#progress" data-toc="progress">Progress</a></li>
-            <li><a class="toc-link" href="#gallery" data-toc="gallery">Media</a></li>
-          </ul>
-        </nav>
-      </aside>
-
-      <div class="page-main">
-
-    <section class="section section-tight section-bounded" id="mission">
-      <div class="section-inner">
-        <header class="section-header reveal" data-reveal>
-          <p class="section-label">01 · Overview</p>
-          <h2>Mission and problem framing</h2>
-          <p class="section-subtitle">Stakeholders · ponds · sampling efficiency</p>
-        </header>
-        <div class="grid-12">
-          <div class="span-7 prose prose-tight reveal" data-reveal>
-            <p>
-              The three DVC ponds support turtles, ducks, geese, and other wildlife. Observations note murky water, algae on walls, and occasional stressed fauna; circulation and aeration may be limiting factors. Manual sampling has taken <strong>2–3 hours for a team of five</strong> across multiple sites—slow for decision-grade monitoring.
-            </p>
-            <p>
-              We are building <strong>repeatable instrumentation</strong> (lab capsule, bench IoT, and surface/underwater platforms) so biology and engineering can share aligned datasets—from bacteria cultures at ~30&nbsp;°C to field temperature, pH, and turbidity traces.
-            </p>
-          </div>
-          <aside class="span-5 reveal" data-reveal>
-            <div class="info-card">
-              <h3 class="info-card-title">At a glance</h3>
-              <ul class="goal-list goal-list-compact goal-list-plain goal-list-animate" id="mission-goals">
-                <li class="goal-card-item">
-                  <svg class="goal-diamond" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M6 0L11.2 6 6 12 .8 6z"/></svg>
-                  <span><strong>Pond health:</strong> Clear metrics for stewardship of all three ponds.</span>
-                </li>
-                <li class="goal-card-item">
-                  <svg class="goal-diamond" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M6 0L11.2 6 6 12 .8 6z"/></svg>
-                  <span><strong>30&nbsp;°C capsule:</strong> Controlled cultures for bio team protocols.</span>
-                </li>
-                <li class="goal-card-item">
-                  <svg class="goal-diamond" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M6 0L11.2 6 6 12 .8 6z"/></svg>
-                  <span><strong>IoT monitor / boat:</strong> pH, temp, turbidity, DO, GPS, RC operation (per design reviews).</span>
-                </li>
-                <li class="goal-card-item">
-                  <svg class="goal-diamond" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M6 0L11.2 6 6 12 .8 6z"/></svg>
-                  <span><strong>Color pipeline:</strong> Test strips + controlled lighting + grading software on GitHub.</span>
-                </li>
-                <li class="goal-card-item">
-                  <svg class="goal-diamond" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M6 0L11.2 6 6 12 .8 6z"/></svg>
-                  <span><strong>Funding path:</strong> Student-government presentation; ASDVC Environmental Affairs partnership.</span>
-                </li>
-              </ul>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-alt section-bounded" id="monitoring">
-      <div class="section-inner">
-        <header class="section-header reveal" data-reveal>
-          <p class="section-label">03 · Instrumentation</p>
-          <h2>Monitoring and proof of concept</h2>
-          <p class="section-subtitle">Cloud logging · bench hardware</p>
-        </header>
-        <div class="split-feature">
-          <article class="panel panel-glow reveal" data-reveal>
-            <div class="panel-head">
-              <h3>ThingSpeak dashboard</h3>
-              <span class="pill pill-live">Field 1 · Field 2</span>
-            </div>
-            <p class="panel-lead">Temperature (°F) and humidity (%) channels uploaded from prototype firmware—used as an end-to-end check before field deployment.</p>
-            <figure class="panel-figure">
-              <img src="assets/image-9a50c8b9-c697-4783-88cf-bc477b0e032a.png" alt="ThingSpeak mobile dashboard showing temperature and humidity proof-of-concept charts" loading="lazy" width="900" height="1200" />
-            </figure>
-          </article>
-          <article class="panel reveal" data-reveal>
-            <div class="panel-head">
-              <h3>Bench prototype</h3>
-              <span class="pill">ESP8266 · OLED · DHT</span>
-            </div>
-            <p class="panel-lead">NodeMCU-class board with local display, DHT-style temperature/humidity sensing, and WiFi uplink—foundation for capsule logging and future pond surface nodes.</p>
-            <figure class="panel-figure">
-              <img src="assets/image-a8b3d238-3db9-4907-aa1e-0365a727f5cf.png" alt="NodeMCU ESP8266 on breadboard with OLED display and DHT sensor wired on a windowsill" loading="lazy" width="900" height="700" />
-            </figure>
-            <ul class="checklist">
-              <li>Local readout on OLED; cloud charts on ThingSpeak</li>
-              <li>Next integration: temperature controller + heat coil assembly</li>
-              <li>Align sensor fusion / navigation research with field goals</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-alt section-tight section-bounded" id="roadmap">
-      <div class="section-inner">
-        <header class="section-header reveal" data-reveal>
-          <p class="section-label">05 · Plan</p>
-          <h2>Roadmap and brainstorm</h2>
-          <p class="section-subtitle">Engineering notes · 27 Feb 2026 docs</p>
-        </header>
-        <div class="roadmap-grid reveal-stagger reveal" data-reveal>
-          <div class="dense-card stagger-item">
-            <h3>Platforms</h3>
-            <p>3D-printable water surveyor boat; Arduino + Raspberry Pi tiers; robotic fish / ROV-style chassis references.</p>
-          </div>
-          <div class="dense-card stagger-item">
-            <h3>Sensing</h3>
-            <p>Temperature &amp; pH first; turbidity &amp; dissolved oxygen; general hardness testing; ultrasonic ranging where applicable.</p>
-          </div>
-          <div class="dense-card stagger-item">
-            <h3>Mechanical</h3>
-            <p>Double-wall concepts; waterproof IP67 enclosures; silicone sealant, gaskets, stainless fasteners; 3D-printed shell.</p>
-          </div>
-          <div class="dense-card stagger-item">
-            <h3>AI / vision</h3>
-            <p>Evaluate camera + model path to read <strong>test strip colors</strong> vs. lab control swatches (ties to color-grading repo).</p>
-          </div>
-          <div class="dense-card stagger-item">
-            <h3>Control</h3>
-            <p>PID thermal loop; syringe micro-dosing sketches; induction heating research (Instructables) for lab tooling only—under advisor review.</p>
-          </div>
-          <div class="dense-card stagger-item">
-            <h3>Blueprint goal</h3>
-            <p><strong>Start with temperature</strong> sensor path, validate in Tinkercad/Wokwi, then layer navigation, power, and waterproofing.</p>
-          </div>
-          <div class="dense-card dense-card--callout reveal" data-reveal>
-            <h4>Design risks</h4>
-            <p>Weight vs. buoyancy with multiple sensors; speed vs. drag; weather sealing; solar vs. battery budget; smaller hull → faster iteration.</p>
-          </div>
-          <div class="dense-card dense-card--callout reveal" data-reveal>
-            <h4>Navigation</h4>
-            <p>Sensor fusion for effective robot navigation — research alongside Adafruit fundamentals and GPS tutorials for waypoint logging.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-tight section-bounded" id="team">
-      <div class="section-inner">
-        <header class="section-header reveal" data-reveal>
-          <p class="section-label">06 · People</p>
-          <h2>Team</h2>
-          <p class="section-subtitle">Roles from incubator planning · April 2026</p>
-        </header>
-        <div class="team-grid">
-          <article class="team-card reveal" data-reveal>
-            <h3 class="team-name">Preston Susanto</h3>
-            <p class="team-role">Web and documentation</p>
-            <p class="team-note">Site layout, README, media, Markdown planning docs, combined vs. split Engineering/Bio information architecture.</p>
-          </article>
-          <article class="team-card reveal" data-reveal>
-            <h3 class="team-name">Aaron Timothy</h3>
-            <p class="team-role">Hardware &amp; circuits</p>
-            <p class="team-note">Heat incubator, Tinkercad schematics, pin/sensor selection, BOM and sourcing.</p>
-          </article>
-          <article class="team-card reveal" data-reveal>
-            <h3 class="team-name">Malahim Khan</h3>
-            <p class="team-role">Hardware &amp; circuits</p>
-            <p class="team-note">Incubator assembly, bench validation, integration with temperature controller and heat coil.</p>
-          </article>
-          <article class="team-card reveal" data-reveal>
-            <h3 class="team-name">Toby Bunch</h3>
-            <p class="team-role">Software and documentation</p>
-            <p class="team-note">Listed on planning drafts; role TBD per latest roster.</p>
-          </article>
-          <article class="team-card reveal team-card-wide" data-reveal>
-            <h3 class="team-name">Professor Mathew Fraund</h3>
-            <p class="team-role">Faculty advisor</p>
-            <p class="team-note">Safety, experimental design, stakeholder alignment, and integration with course outcomes.</p>
-          </article>
-        </div>
-        <figure class="doc-inline reveal" data-reveal>
-          <img src="assets/image-5cbed27d-8dfd-4c12-b78f-d15eba211f14.png" alt="Meeting notes: incubator objectives, team list, project goals, and task assignments" loading="lazy" width="1100" height="700" />
-          <figcaption>Incubator planning meeting — objectives, goals, and responsibility split (hardware vs. web).</figcaption>
+          <figcaption>Sample bottles labelled Pond, in the lab</figcaption>
         </figure>
       </div>
+      <p class="hero-hint wrap" aria-hidden="true" hidden>Move across the water to make ripples.</p>
+      <div class="hero-facts wrap">
+        <dl class="facts">
+          <div class="fact">
+            <dt>Status</dt>
+            <dd>Active and in progress, Spring 2026 cohort</dd>
+          </div>
+          <div class="fact">
+            <dt>With</dt>
+            <dd><a href="https://www.dvc.edu/" target="_blank" rel="noopener noreferrer">Diablo Valley College<span class="vh"> (opens in a new tab)</span></a><br /><a href="https://www.dvc.edu/academics/learning-communities/mesa-program" target="_blank" rel="noopener noreferrer">MESA at DVC<span class="vh"> (opens in a new tab)</span></a></dd>
+          </div>
+          <div class="fact">
+            <dt>Primary record</dt>
+            <dd><a href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">Measurements, notes, lab log<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a></dd>
+          </div>
+          <div class="fact">
+            <dt>Artifacts</dt>
+            <dd>GitHub repos, Tinkercad, ThingSpeak PoC</dd>
+          </div>
+          <div class="fact">
+            <dt>Focus</dt>
+            <dd>Water quality, habitat health, faster sampling</dd>
+          </div>
+        </dl>
+        <p class="hero-fields"><span class="hero-fields-label">Fields</span> Pond ecology, Instrumentation, Open data, Lab and field</p>
+      </div>
     </section>
 
-    <section class="section section-alt section-bounded" id="engineering">
-      <div class="section-inner">
-        <header class="section-header reveal" data-reveal>
-          <p class="section-label">07 · Systems &amp; Code</p>
-          <h2>Systems under development</h2>
-          <p class="section-subtitle">Capsule · logging · robotics</p>
+    <!-- Question -->
+    <section class="section section-question" id="mission" aria-labelledby="mission-title">
+      <div class="wrap">
+        <blockquote class="statement">
+          <p>“A multi-disciplinary initiative dedicated to rigorous monitoring and scientific study of campus pond ecosystems through integrated sensor networks, lab cultures, and field-ready platforms.”</p>
+          <cite>Technical overview, DVC Pond Research engineering team</cite>
+        </blockquote>
+
+        <div class="question-grid">
+          <header class="section-head">
+            <h2 id="mission-title">Mission and problem framing</h2>
+            <p class="section-sub">Stakeholders, ponds and sampling efficiency</p>
+          </header>
+          <div class="prose">
+            <p>The 3 DVC ponds support turtles, ducks, geese, and other wildlife. Observations note murky water, algae on walls, and occasional stressed fauna; circulation and aeration may be limiting factors. Manual sampling has taken <strong>2–3 hours for a team of 5</strong> across multiple sites, which is slow for decision-grade monitoring.</p>
+            <p>We are building <strong>repeatable instrumentation</strong> (lab capsule, bench IoT, and surface/underwater platforms) so biology and engineering can share aligned datasets, from bacteria cultures at ~30&nbsp;°C to field temperature, pH, and turbidity traces.</p>
+          </div>
+          <aside class="sampling" aria-label="Manual sampling time">
+            <p class="sampling-figure">2–3<span> hours</span></p>
+            <p class="sampling-text">for a team of 5 to sample the ponds by hand, across multiple sites. Faster, repeatable sampling is the problem this team is working on.</p>
+          </aside>
+        </div>
+
+        <div class="glance">
+          <h3 class="glance-title">At a glance</h3>
+          <ul class="glance-list">
+            <li><strong>Pond health</strong><span>Clear metrics for stewardship of all 3 ponds.</span></li>
+            <li><strong>30&nbsp;°C capsule</strong><span>Controlled cultures for bio team protocols.</span></li>
+            <li><strong>IoT monitor / boat</strong><span>pH, temp, turbidity, DO, GPS, RC operation (per design reviews).</span></li>
+            <li><strong>Color pipeline</strong><span>Test strips + controlled lighting + grading software on GitHub.</span></li>
+            <li><strong>Funding path</strong><span>Student-government presentation; ASDVC Environmental Affairs partnership.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Methods -->
+    <section class="section section-methods" id="monitoring" aria-labelledby="monitoring-title">
+      <div class="wrap">
+        <header class="section-head section-head-wide">
+          <h2 id="monitoring-title">Monitoring and proof of concept</h2>
+          <p class="section-sub">Cloud logging and bench hardware</p>
         </header>
 
-        <div class="feature-block reveal" data-reveal>
-          <div class="feature-visual">
-            <img src="assets/IMG_9305-fd8c99a7-d7f6-46c7-87bb-90f26fa1856b.png" alt="Insulated prototype capsule on a lab bench with viewing ports" loading="lazy" width="800" height="600" />
+        <div class="measure">
+          <h3 class="measure-title">What we measure, and where each reading stands</h3>
+          <p class="measure-note">Compiled from the project goals, roadmap and milestones on this page. Plans change with design reviews.</p>
+          <div class="table-scroll" tabindex="0" role="region" aria-label="Measurement plan table">
+            <table class="measure-table">
+              <thead>
+                <tr><th scope="col">Reading</th><th scope="col">How</th><th scope="col">Status</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Temperature</th><td>DHT-style sensor on the ESP8266 bench prototype; ThingSpeak Field 1 (°F). Blueprint goal: start with the temperature sensor path.</td><td><span class="state state-live">Logging from bench hardware</span></td></tr>
+                <tr><th scope="row">Humidity</th><td>Same bench prototype; ThingSpeak Field 2 (%).</td><td><span class="state state-live">Logging from bench hardware</span></td></tr>
+                <tr><th scope="row">pH</th><td>Sensing plan lists temperature and pH first; test strips read against lab control swatches.</td><td><span class="state state-next">Planned first</span></td></tr>
+                <tr><th scope="row">Turbidity</th><td>Sensing plan, after temperature and pH.</td><td><span class="state">Planned</span></td></tr>
+                <tr><th scope="row">Dissolved oxygen</th><td>Sensing plan, after temperature and pH.</td><td><span class="state">Planned</span></td></tr>
+                <tr><th scope="row">General hardness</th><td>Hardness testing in the sensing plan.</td><td><span class="state">Planned</span></td></tr>
+                <tr><th scope="row">Position (GPS)</th><td>IoT monitor / boat design reviews; GPS tutorials for waypoint logging.</td><td><span class="state">Planned</span></td></tr>
+                <tr><th scope="row">Test strip color</th><td>Color grading system on GitHub; camera + model path under evaluation.</td><td><span class="state state-next">Software on GitHub</span></td></tr>
+              </tbody>
+            </table>
           </div>
+        </div>
+
+        <div class="instruments">
+          <article class="instrument">
+            <figure class="instrument-figure instrument-figure-phone">
+              <img src="assets/img/image-9a50-460.webp" width="460" height="1024" loading="lazy" decoding="async" alt="ThingSpeak mobile dashboard showing temperature and humidity proof-of-concept charts" />
+            </figure>
+            <div class="instrument-body">
+              <h3>ThingSpeak dashboard</h3>
+              <p class="instrument-tags">Field 1 and Field 2</p>
+              <p>Temperature (°F) and humidity (%) channels uploaded from prototype firmware, used as an end-to-end check before field deployment.</p>
+            </div>
+          </article>
+          <article class="instrument">
+            <figure class="instrument-figure">
+              <img src="assets/img/image-a8b3-771.webp" srcset="assets/img/image-a8b3-480.webp 480w, assets/img/image-a8b3-771.webp 771w" sizes="(min-width: 960px) 26vw, 90vw" width="771" height="1024" loading="lazy" decoding="async" alt="NodeMCU ESP8266 on a breadboard with OLED display and DHT sensor, wired on a windowsill" />
+            </figure>
+            <div class="instrument-body">
+              <h3>Bench prototype</h3>
+              <p class="instrument-tags">ESP8266, OLED, DHT</p>
+              <p>NodeMCU-class board with local display, DHT-style temperature/humidity sensing, and WiFi uplink: the foundation for capsule logging and future pond surface nodes.</p>
+              <ul class="ticks">
+                <li>Local readout on OLED; cloud charts on ThingSpeak</li>
+                <li>Next integration: temperature controller + heat coil assembly</li>
+                <li>Align sensor fusion / navigation research with field goals</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Systems -->
+    <section class="section section-systems" id="engineering" aria-labelledby="engineering-title">
+      <div class="wrap">
+        <header class="section-head section-head-wide">
+          <h2 id="engineering-title">Systems under development</h2>
+          <p class="section-sub">Capsule, logging and robotics</p>
+        </header>
+
+        <article class="feature">
+          <figure class="feature-figure">
+            <img src="assets/img/IMG_9290-768.webp" srcset="assets/img/IMG_9290-480.webp 480w, assets/img/IMG_9290-768.webp 768w" sizes="(min-width: 960px) 40vw, 92vw" width="768" height="1024" loading="lazy" decoding="async" alt="Insulated prototype capsule with 2 round viewing ports on a lab bench" />
+          </figure>
           <div class="feature-text">
             <h3>30&nbsp;°C growth capsule</h3>
-            <p>Insulated chamber with viewing ports, power entry, and indicator—paired with resistive heat path (e.g. Kanthal-class wire) and closed-loop control once the temperature controller stage is integrated.</p>
-            <p class="mono-note">Waterproof bench tanks and IP-rated project boxes under evaluation for wet testing (see resources).</p>
+            <p>Insulated chamber with viewing ports, power entry, and indicator, paired with a resistive heat path (e.g. Kanthal-class wire) and closed-loop control once the temperature controller stage is integrated.</p>
+            <p class="feature-note">Waterproof bench tanks and IP-rated project boxes under evaluation for wet testing (see references).</p>
           </div>
-        </div>
+        </article>
 
-        <div class="feature-block feature-block-reverse reveal" data-reveal>
-          <div class="feature-visual">
-            <img src="assets/IMG_9301-ebfede92-6456-4f64-8e8a-6a7cae587f3d.png" alt="Team at lab bench with Tinkercad or Arduino simulation on laptop" loading="lazy" width="800" height="600" />
-          </div>
+        <article class="feature feature-flip">
+          <figure class="feature-figure">
+            <img src="assets/img/IMG_9292-768.webp" srcset="assets/img/IMG_9292-480.webp 480w, assets/img/IMG_9292-768.webp 768w" sizes="(min-width: 960px) 40vw, 92vw" width="768" height="1024" loading="lazy" decoding="async" alt="Laptop showing an Arduino circuit simulation with an LCD in Tinkercad" />
+          </figure>
           <div class="feature-text">
             <h3>Control electronics</h3>
-            <p>Microcontroller bring-up in simulation then hardware: thermostat lesson analogs in Tinkercad, Wokwi for firmware checks, then capsule wiring with faculty-reviewed power limits.</p>
+            <p>Microcontroller bring-up in simulation, then hardware: thermostat lesson analogs in Tinkercad, Wokwi for firmware checks, then capsule wiring with faculty-reviewed power limits.</p>
           </div>
-        </div>
+        </article>
 
-        <div class="feature-block reveal" data-reveal>
-          <div class="feature-visual">
-            <img src="assets/IMG_9303-754ce00c-f466-42d8-95e0-b664c58daf75.png" alt="Lab cart with hot plate, scale, and pH sensor equipment" loading="lazy" width="800" height="600" />
-          </div>
+        <article class="feature">
+          <figure class="feature-figure feature-figure-wide">
+            <img src="assets/img/IMG_9303-1024.webp" srcset="assets/img/IMG_9303-480.webp 480w, assets/img/IMG_9303-1024.webp 1024w" sizes="(min-width: 960px) 40vw, 92vw" width="1024" height="768" loading="lazy" decoding="async" alt="Lab carts holding a heating mantle, tubing and vacuum pumps" />
+          </figure>
           <div class="feature-text">
             <h3>Field robotics and lab support</h3>
             <p>Robotic fish / boat concepts for mobile temperature and water-quality mapping; cart-scale prep for pH, scales, and hot-plate workflows supporting bio cultures.</p>
           </div>
-        </div>
+        </article>
 
-        <div class="cards-row cards-row-4">
-          <article class="mini-card reveal" data-reveal><h3>Environmental logging</h3><p>24/7 temperature &amp; humidity with live display + ThingSpeak (or successor) channels.</p></article>
-          <article class="mini-card reveal" data-reveal><h3>Gantt &amp; funding</h3><p>Timeline with dependencies; student-government deck; need statements for metrics beyond pH/DO/turbidity.</p></article>
-          <article class="mini-card reveal" data-reveal><h3>Color analysis</h3><p>GitHub color-grading system linked to strip imaging hardware experiments.</p></article>
-          <article class="mini-card reveal" data-reveal><h3>Bio × Eng</h3><p>Bacteria capture and growth supported by controlled capsule and shared data model with IO site.</p></article>
-        </div>
+        <ul class="workstreams">
+          <li><h3>Environmental logging</h3><p>24/7 temperature &amp; humidity with live display + ThingSpeak (or successor) channels.</p></li>
+          <li><h3>Gantt &amp; funding</h3><p>Timeline with dependencies; student-government deck; need statements for metrics beyond pH/DO/turbidity.</p></li>
+          <li><h3>Color analysis</h3><p>GitHub color-grading system linked to strip imaging hardware experiments.</p></li>
+          <li><h3>Bio × Eng</h3><p>Bacteria capture and growth supported by controlled capsule and shared data model with IO site.</p></li>
+        </ul>
 
-        <header class="section-header section-header-inline reveal" data-reveal>
-          <div>
-            <p class="section-label">Code tools</p>
-            <h2>Repositories and tools</h2>
-            <p class="section-subtitle">Version control · color pipeline · simulations</p>
-          </div>
+        <div class="code-tools">
+          <header class="code-tools-head">
+            <h3 class="h-sub">Repositories and tools</h3>
+            <p class="section-sub">Version control, color pipeline and simulations</p>
+          </header>
+          <ul class="repo-list">
+            <li class="repo">
+              <a href="https://github.com/ShadowEsu/dvcpondresearch" target="_blank" rel="noopener noreferrer">
+                <span class="repo-host">GitHub</span>
+                <span class="repo-name">dvcpondresearch<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg></span>
+                <span class="repo-desc">MESA pond research group site source and deployment workflow.</span>
+                <span class="vh"> (opens in a new tab)</span>
+              </a>
+            </li>
+            <li class="repo">
+              <a href="https://github.com/ShadowEsu/Color-Grading-System-Pond-Project-System" target="_blank" rel="noopener noreferrer">
+                <span class="repo-host">GitHub</span>
+                <span class="repo-name">Color grading system<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg></span>
+                <span class="repo-desc">Match test-strip and experiment colors against controls for repeatable readouts.</span>
+                <span class="vh"> (opens in a new tab)</span>
+              </a>
+            </li>
+            <li class="repo repo-stack">
+              <span class="repo-host">Sim and CAD</span>
+              <span class="repo-name">Design stack</span>
+              <ul>
+                <li><a href="https://www.tinkercad.com/things/fJQX1NhdqfI-incubator/editel" target="_blank" rel="noopener noreferrer">Tinkercad: incubator (temperature sense)<span class="vh"> (opens in a new tab)</span></a></li>
+                <li><a href="https://www.tinkercad.com/" target="_blank" rel="noopener noreferrer">Tinkercad: circuits and 3D<span class="vh"> (opens in a new tab)</span></a></li>
+                <li><a href="https://wokwi.com/" target="_blank" rel="noopener noreferrer">Wokwi: online Arduino / ESP simulation<span class="vh"> (opens in a new tab)</span></a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data -->
+    <section class="section section-data" id="data" aria-labelledby="data-title">
+      <div class="wrap">
+        <header class="section-head section-head-wide">
+          <h2 id="data-title">Outputs and live data</h2>
+          <p class="section-lead">Key metrics from the current field and bench campaign. Figures update as the team publishes to the IO hub and ThingSpeak.</p>
         </header>
 
-        <div class="bento bento-3 reveal-stagger reveal" data-reveal>
-          <a class="bento-card bento-card-accent stagger-item" href="https://github.com/ShadowEsu/dvcpondresearch" target="_blank" rel="noopener noreferrer">
-            <span class="bento-kicker">GitHub</span>
-            <h3 class="bento-title">dvcpondresearch</h3>
-            <p class="bento-desc">MESA pond research group site source and deployment workflow.</p>
-            <span class="bento-go">View repository ↗</span>
-          </a>
-          <a class="bento-card stagger-item" href="https://github.com/ShadowEsu/Color-Grading-System-Pond-Project-System" target="_blank" rel="noopener noreferrer">
-            <span class="bento-kicker">GitHub</span>
-            <h3 class="bento-title">Color grading system</h3>
-            <p class="bento-desc">Match test-strip and experiment colors against controls for repeatable readouts.</p>
-            <span class="bento-go">View repository ↗</span>
-          </a>
-          <div class="bento-card bento-card-dense stagger-item">
-            <span class="bento-kicker">Sim and CAD</span>
-            <h3 class="bento-title">Design stack</h3>
-            <ul class="bento-list">
-              <li><a href="https://www.tinkercad.com/things/fJQX1NhdqfI-incubator/editel" target="_blank" rel="noopener noreferrer">Tinkercad — incubator (temperature sense)</a></li>
-              <li><a href="https://www.tinkercad.com/" target="_blank" rel="noopener noreferrer">Tinkercad — circuits and 3D</a></li>
-              <li><a href="https://wokwi.com/" target="_blank" rel="noopener noreferrer">Wokwi — online Arduino / ESP simulation</a></li>
+        <dl class="stats">
+          <div class="stat"><dt>Campus ponds monitored</dt><dd>3</dd></div>
+          <div class="stat"><dt>Sensor readings logged (PoC)</dt><dd>847</dd></div>
+          <div class="stat"><dt>Public GitHub repositories</dt><dd>2</dd></div>
+          <div class="stat"><dt>Active deployment window</dt><dd>Spring 2026</dd></div>
+        </dl>
+
+        <div class="data-grid">
+          <article class="data-item data-item-chart">
+            <h3>ThingSpeak proof of concept</h3>
+            <p>Temperature and humidity channels from bench firmware. The public chart embed will appear here once the channel is public; until then, the dashboard screenshot in Methods shows the proof-of-concept charts.</p>
+            <a class="text-link" href="https://thingspeak.com" target="_blank" rel="noopener noreferrer">Open ThingSpeak<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a>
+          </article>
+          <article class="data-item">
+            <h3>Primary data record</h3>
+            <p>Measurements, field notes, and lab documentation on the project IO site.</p>
+            <a class="btn btn-light btn-sm" href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">Open IO documentation<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a>
+          </article>
+          <article class="data-item">
+            <h3>Campaign spreadsheet</h3>
+            <p>Shared Google Sheet for pond runs, timestamps, and notes.</p>
+            <a class="btn btn-line btn-sm" href="https://docs.google.com/spreadsheets/d/1jRo4IqDwOE28Zj2VbaXQlAlaqkCJDlxkP3YryVd3gGk/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer">Open spreadsheet<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a>
+          </article>
+        </div>
+
+        <div class="documents">
+          <h3>Project documents</h3>
+          <ul>
+            <li><a href="https://github.com/ShadowEsu/dvcpondresearch" target="_blank" rel="noopener noreferrer">Planning and README sources (repository)<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a></li>
+            <li><a href="https://github.com/ShadowEsu/Color-Grading-System-Pond-Project-System" target="_blank" rel="noopener noreferrer">Color grading system (repository)<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a></li>
+          </ul>
+          <p class="documents-note">Export PDFs from the linked repositories or request formal reports from the faculty advisor.</p>
+        </div>
+        <p class="updated">Last updated <time datetime="2026-04-17">April 17, 2026</time></p>
+      </div>
+    </section>
+
+    <!-- Milestones -->
+    <section class="section section-milestones" id="progress" aria-labelledby="progress-title">
+      <div class="wrap">
+        <header class="section-head section-head-wide">
+          <h2 id="progress-title">Milestones</h2>
+          <p class="section-sub">Status, spring 2026</p>
+        </header>
+        <ol class="timeline">
+          <li class="tl tl-done">
+            <span class="tl-step" aria-hidden="true">1</span>
+            <p class="tl-state">Done</p>
+            <h3>Temperature sense sim</h3>
+            <p>Tinkercad incubator path validated for sensor stage; assembly with controller + coil queued.</p>
+          </li>
+          <li class="tl tl-active">
+            <span class="tl-step" aria-hidden="true">2</span>
+            <p class="tl-state">Active</p>
+            <h3>IoT proof of concept</h3>
+            <p>ThingSpeak fields live from bench hardware; OLED local readout.</p>
+          </li>
+          <li class="tl tl-active">
+            <span class="tl-step" aria-hidden="true">3</span>
+            <p class="tl-state">Active</p>
+            <h3>Physical capsule</h3>
+            <p>Insulated prototype on bench with wiring iterations.</p>
+          </li>
+          <li class="tl tl-next">
+            <span class="tl-step" aria-hidden="true">4</span>
+            <p class="tl-state">Next</p>
+            <h3>Hull + waterproofing</h3>
+            <p>3D-printed shell, seals, thruster/servo trade studies, weight budget.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section class="section section-roadmap" id="roadmap" aria-labelledby="roadmap-title">
+      <div class="wrap">
+        <header class="section-head section-head-wide">
+          <h2 id="roadmap-title">Roadmap and brainstorm</h2>
+          <p class="section-sub">Engineering notes from the 27 Feb 2026 docs</p>
+        </header>
+        <dl class="notebook">
+          <div class="note"><dt>Platforms</dt><dd>3D-printable water surveyor boat; Arduino + Raspberry Pi tiers; robotic fish / ROV-style chassis references.</dd></div>
+          <div class="note"><dt>Sensing</dt><dd>Temperature &amp; pH first; turbidity &amp; dissolved oxygen; general hardness testing; ultrasonic ranging where applicable.</dd></div>
+          <div class="note"><dt>Mechanical</dt><dd>Double-wall concepts; waterproof IP67 enclosures; silicone sealant, gaskets, stainless fasteners; 3D-printed shell.</dd></div>
+          <div class="note"><dt>AI / vision</dt><dd>Evaluate camera + model path to read <strong>test strip colors</strong> vs. lab control swatches (ties to color-grading repo).</dd></div>
+          <div class="note"><dt>Control</dt><dd>PID thermal loop; syringe micro-dosing sketches; induction heating research (Instructables) for lab tooling only, under advisor review.</dd></div>
+          <div class="note"><dt>Blueprint goal</dt><dd><strong>Start with temperature</strong> sensor path, validate in Tinkercad/Wokwi, then layer navigation, power, and waterproofing.</dd></div>
+        </dl>
+        <div class="callouts">
+          <div class="callout">
+            <h3>Design risks</h3>
+            <p>Weight vs. buoyancy with multiple sensors; speed vs. drag; weather sealing; solar vs. battery budget; smaller hull means faster iteration.</p>
+          </div>
+          <div class="callout">
+            <h3>Navigation</h3>
+            <p>Sensor fusion for effective robot navigation: research alongside Adafruit fundamentals and GPS tutorials for waypoint logging.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section section-team" id="team" aria-labelledby="team-title">
+      <div class="wrap">
+        <header class="section-head section-head-wide">
+          <h2 id="team-title">Team</h2>
+          <p class="section-sub">Roles from incubator planning, April 2026</p>
+        </header>
+        <div class="team-layout">
+          <ul class="roster">
+            <li class="member">
+              <h3>Preston Susanto</h3>
+              <p class="member-role">Web and documentation</p>
+              <p class="member-note">Site layout, README, media, Markdown planning docs, combined vs. split Engineering/Bio information architecture.</p>
+            </li>
+            <li class="member">
+              <h3>Aaron Timothy</h3>
+              <p class="member-role">Hardware &amp; circuits</p>
+              <p class="member-note">Heat incubator, Tinkercad schematics, pin/sensor selection, BOM and sourcing.</p>
+            </li>
+            <li class="member">
+              <h3>Malahim Khan</h3>
+              <p class="member-role">Hardware &amp; circuits</p>
+              <p class="member-note">Incubator assembly, bench validation, integration with temperature controller and heat coil.</p>
+            </li>
+            <li class="member">
+              <h3>Toby Bunch</h3>
+              <p class="member-role">Software and documentation</p>
+              <p class="member-note">Listed on planning drafts; role TBD per latest roster.</p>
+            </li>
+            <li class="member member-advisor">
+              <h3>Professor Mathew Fraund</h3>
+              <p class="member-role">Faculty advisor</p>
+              <p class="member-note">Safety, experimental design, stakeholder alignment, and integration with course outcomes.</p>
+            </li>
+          </ul>
+          <div class="team-media">
+            <figure class="team-photo">
+              <img src="assets/img/IMG_9305-768.webp" srcset="assets/img/IMG_9305-480.webp 480w, assets/img/IMG_9305-768.webp 768w" sizes="(min-width: 960px) 34vw, 92vw" width="768" height="1024" loading="lazy" decoding="async" alt="2 team members working on laptops at a lab bench" />
+              <figcaption>Working session at the lab bench.</figcaption>
+            </figure>
+            <figure class="team-notes">
+              <img src="assets/img/image-5cbe-468.webp" width="468" height="648" loading="lazy" decoding="async" alt="Meeting notes: incubator objectives, team list, project goals, and task assignments" />
+              <figcaption>Incubator planning meeting: objectives, goals, and responsibility split (hardware vs. web).</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section section-gallery" id="gallery" aria-labelledby="gallery-title">
+      <div class="wrap">
+        <header class="section-head section-head-wide gallery-head">
+          <div>
+            <h2 id="gallery-title">Photo and document gallery</h2>
+            <p class="section-sub">Lab, bench, and planning artifacts</p>
+          </div>
+          <div class="filters" role="group" aria-label="Filter photos">
+            <button type="button" class="filter" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="filter" data-filter="capsule" aria-pressed="false">Capsule</button>
+            <button type="button" class="filter" data-filter="electronics" aria-pressed="false">Electronics and data</button>
+            <button type="button" class="filter" data-filter="lab" aria-pressed="false">Lab equipment</button>
+            <button type="button" class="filter" data-filter="planning" aria-pressed="false">Planning and team</button>
+          </div>
+        </header>
+        <p class="vh" id="gallery-status" aria-live="polite"></p>
+        <ul class="gallery" id="gallery-grid">
+          <li class="shot" data-cat="electronics"><button data-alt="ThingSpeak charts for temperature and humidity" type="button" class="shot-btn" data-full="assets/img/image-9a50-460.webp"><img src="assets/img/image-9a50-460.webp" width="460" height="1024" loading="lazy" decoding="async" alt="" /><span class="shot-cap">ThingSpeak charts for temperature and humidity</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="ESP8266 breadboard prototype" type="button" class="shot-btn" data-full="assets/img/image-a8b3-771.webp"><img src="assets/img/image-a8b3-480.webp" width="480" height="637" loading="lazy" decoding="async" alt="" /><span class="shot-cap">ESP8266 breadboard prototype</span></button></li>
+          <li class="shot" data-cat="capsule"><button data-alt="Capsule prototype on bench" type="button" class="shot-btn" data-full="assets/img/IMG_9290-768.webp"><img src="assets/img/IMG_9290-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Capsule prototype on bench</span></button></li>
+          <li class="shot" data-cat="planning"><button data-alt="Typed meeting notes for incubator project" type="button" class="shot-btn shot-paper" data-full="assets/img/image-5cbe-468.webp"><img src="assets/img/image-5cbe-468.webp" width="468" height="648" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Typed meeting notes for incubator project</span></button></li>
+          <li class="shot" data-cat="capsule"><button data-alt="Interior of capsule with viewing ports and heater wiring" type="button" class="shot-btn" data-full="assets/img/IMG_9284-1024.webp"><img src="assets/img/IMG_9284-480.webp" width="480" height="360" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Interior of capsule with heater wiring</span></button></li>
+          <li class="shot" data-cat="capsule"><button data-alt="Thermometer inside insulated box" type="button" class="shot-btn" data-full="assets/img/IMG_9289-768.webp"><img src="assets/img/IMG_9289-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Thermometer inside insulated box</span></button></li>
+          <li class="shot" data-cat="lab"><button data-alt="Sample bottles labelled Pond" type="button" class="shot-btn" data-full="assets/img/IMG_9301-768.webp"><img src="assets/img/IMG_9301-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Sample bottles labelled Pond</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="Arduino circuit simulation in Tinkercad on a laptop" type="button" class="shot-btn" data-full="assets/img/IMG_9292-768.webp"><img src="assets/img/IMG_9292-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Arduino circuit simulation in Tinkercad</span></button></li>
+          <li class="shot" data-cat="capsule"><button data-alt="Capsule lid with mounting bracket and red indicator light" type="button" class="shot-btn" data-full="assets/img/IMG_9291-768.webp"><img src="assets/img/IMG_9291-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Capsule lid with indicator light</span></button></li>
+          <li class="shot" data-cat="lab"><button data-alt="Heating mantle and tubing on a lab cart" type="button" class="shot-btn" data-full="assets/img/IMG_9298-768.webp"><img src="assets/img/IMG_9298-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Heating mantle and tubing on a lab cart</span></button></li>
+          <li class="shot" data-cat="capsule"><button data-alt="Thermometer lying on the capsule floor" type="button" class="shot-btn" data-full="assets/img/IMG_9286-1024.webp"><img src="assets/img/IMG_9286-480.webp" width="480" height="360" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Thermometer on the capsule floor</span></button></li>
+          <li class="shot" data-cat="lab"><button data-alt="Heaters, hot plate and cables on a lab cart" type="button" class="shot-btn" data-full="assets/img/IMG_9296-768.webp"><img src="assets/img/IMG_9296-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Heaters and hot plates on a cart</span></button></li>
+          <li class="shot" data-cat="electronics"><button data-alt="Kanthal wire product page on a laptop" type="button" class="shot-btn" data-full="assets/img/IMG_9306-768.webp"><img src="assets/img/IMG_9306-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Kanthal wire product page</span></button></li>
+          <li class="shot" data-cat="lab"><button data-alt="Lab vacuum pumps and carts" type="button" class="shot-btn" data-full="assets/img/IMG_9302-1024.webp"><img src="assets/img/IMG_9302-480.webp" width="480" height="360" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Lab vacuum pumps and carts</span></button></li>
+          <li class="shot" data-cat="planning"><button data-alt="Team at bench with laptops" type="button" class="shot-btn" data-full="assets/img/IMG_9305-768.webp"><img src="assets/img/IMG_9305-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Team at bench with laptops</span></button></li>
+          <li class="shot" data-cat="capsule"><button data-alt="Indicator light and bracket on the capsule" type="button" class="shot-btn" data-full="assets/img/IMG_9287-768.webp"><img src="assets/img/IMG_9287-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Indicator light and bracket on the capsule</span></button></li>
+          <li class="shot" data-cat="lab"><button data-alt="Equipment carts with heating mantle and pumps" type="button" class="shot-btn" data-full="assets/img/IMG_9303-1024.webp"><img src="assets/img/IMG_9303-480.webp" width="480" height="360" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Equipment carts with heating mantle and pumps</span></button></li>
+          <li class="shot" data-cat="lab"><button data-alt="Cart with a heater and hot plates" type="button" class="shot-btn" data-full="assets/img/IMG_9297-768.webp"><img src="assets/img/IMG_9297-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Cart with a heater and hot plates</span></button></li>
+          <li class="shot" data-cat="lab"><button data-alt="Glassware in storage bins" type="button" class="shot-btn" data-full="assets/img/IMG_9300-768.webp"><img src="assets/img/IMG_9300-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Glassware in storage bins</span></button></li>
+          <li class="shot" data-cat="lab"><button data-alt="Hot plate and instruments on a cart" type="button" class="shot-btn" data-full="assets/img/IMG_9299-768.webp"><img src="assets/img/IMG_9299-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Hot plate and instruments on a cart</span></button></li>
+          <li class="shot" data-cat="lab"><button data-alt="Heating mantles and tubing in a cart basket" type="button" class="shot-btn" data-full="assets/img/IMG_9304-1024.webp"><img src="assets/img/IMG_9304-480.webp" width="480" height="360" loading="lazy" decoding="async" alt="" /><span class="shot-cap">Heating mantles and tubing</span></button></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- References -->
+    <section class="section section-refs" id="resources" aria-labelledby="resources-title">
+      <div class="wrap">
+        <header class="section-head section-head-wide">
+          <h2 id="resources-title">Reference library</h2>
+          <p class="section-sub">External guides, community builds and papers</p>
+        </header>
+        <div class="refs">
+          <div class="ref-group">
+            <h3>Tutorials <span class="count">4</span></h3>
+            <ul>
+              <li><a href="https://www.open-electronics.org/robofish-create-your-robot-fish-with-arduino/" target="_blank" rel="noopener noreferrer">Open Electronics: RoboFish with Arduino<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a></li>
+              <li><a href="https://www.instructables.com/GPS-With-Arduino-Tutorial-Step-by-Step/" target="_blank" rel="noopener noreferrer">Instructables: GPS with Arduino<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a></li>
+              <li><a href="https://www.sciencebuddies.org/science-fair-projects/project-ideas/Robotics_p052/robotics/arduino-underwater-ROV" target="_blank" rel="noopener noreferrer">Science Buddies: Arduino underwater ROV<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a></li>
+              <li><a href="https://learn.adafruit.com/lesson-0-getting-started" target="_blank" rel="noopener noreferrer">Adafruit: Getting started<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a></li>
+            </ul>
+          </div>
+          <div class="ref-group">
+            <h3>Articles <span class="count">3</span></h3>
+            <ul>
+              <li><a href="https://blog.arduino.cc/2021/07/23/this-arduino-powered-robotic-fish-was-inspired-by-the-real-thing/" target="_blank" rel="noopener noreferrer">Arduino Blog: robotic fish inspiration<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a></li>
+              <li><a href="https://www.ceva-ip.com/blog/how-sensor-fusion-enables-effective-robot-navigation/" target="_blank" rel="noopener noreferrer">Ceva: sensor fusion for navigation<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a></li>
+              <li><a href="https://timesofindia.indiatimes.com/science/chinas-new-soft-robot-can-float-crawl-and-walk-through-spaces-others-cannot/articleshow/127710823.cms" target="_blank" rel="noopener noreferrer">Soft robot mobility reference (news)<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a></li>
+            </ul>
+          </div>
+          <div class="ref-group">
+            <h3>Papers <span class="count">2</span></h3>
+            <ul>
+              <li><a href="https://www.mdpi.com/2076-3417/15/13/7052" target="_blank" rel="noopener noreferrer">MDPI: engineering article (team reference)<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a></li>
+              <li><a href="https://www.nature.com/articles/s44172-025-00447-w" target="_blank" rel="noopener noreferrer">Nature Scientific Reports: design reference<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a></li>
+            </ul>
+          </div>
+          <div class="ref-group">
+            <h3>Videos <span class="count">2</span></h3>
+            <ul>
+              <li><a href="https://www.youtube.com/watch?v=n8XFBFg3A6k" target="_blank" rel="noopener noreferrer">YouTube: thermostat in Tinkercad (GringoChemist)<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a></li>
+              <li><a href="https://www.youtube.com/watch?v=I-5_MN5_Fmc" target="_blank" rel="noopener noreferrer">YouTube: team-shared reference (Malahim)<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a></li>
+            </ul>
+          </div>
+          <div class="ref-group">
+            <h3>Community <span class="count">1</span></h3>
+            <ul>
+              <li><a href="https://www.reddit.com/r/ArduinoProjects/comments/kafeyz/robotic_fish_using_arduino_unoo_hc05/" target="_blank" rel="noopener noreferrer">Reddit: Arduino Uno robotic fish discussion<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a></li>
+            </ul>
+          </div>
+          <div class="ref-group">
+            <h3>Reference builds <span class="count">2</span></h3>
+            <ul>
+              <li><a href="https://www.instructables.com/Underwater-Swimming-Pool-Bluetooth-Solar-Cleaning-/" target="_blank" rel="noopener noreferrer">Instructables: underwater solar pool cleaner<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a></li>
+              <li><a href="https://share.google/AOpP2jNpxgyWV7q84" target="_blank" rel="noopener noreferrer">DIY induction heater: lab tooling research<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a></li>
             </ul>
           </div>
         </div>
+        <p class="refs-note"><strong>Note on commercial chassis:</strong> search “underwater ROV kit” or marketplace listings for sizing only; verify ratings and seals independently.</p>
       </div>
     </section>
 
-    <section class="section" id="progress">
-      <div class="section-inner">
-        <header class="section-header reveal" data-reveal>
-          <p class="section-label">08 · Milestones</p>
-          <h2>Milestones</h2>
-          <p class="section-subtitle">Status · spring 2026</p>
+    <!-- Cite -->
+    <section class="section section-cite" id="cite" aria-labelledby="cite-title">
+      <div class="wrap cite-layout">
+        <header class="section-head">
+          <h2 id="cite-title">How to cite this project</h2>
+          <p class="section-sub">No DOI yet: use the canonical documentation hub</p>
         </header>
-        <div class="progress-timeline" id="progress-timeline" data-reveal>
-          <div class="progress-timeline-line" aria-hidden="true"></div>
-          <ol class="progress-timeline-list">
-            <li class="progress-timeline-item progress-timeline-item--done reveal" data-reveal>
-              <span class="progress-timeline-dot" aria-hidden="true"></span>
-              <div class="progress-timeline-card">
-                <span class="milestone-state done">Done</span>
-                <h3>Temperature sense sim</h3>
-                <p>Tinkercad incubator path validated for sensor stage; assembly with controller + coil queued.</p>
-              </div>
-            </li>
-            <li class="progress-timeline-item progress-timeline-item--active reveal" data-reveal>
-              <span class="progress-timeline-dot" aria-hidden="true"></span>
-              <div class="progress-timeline-card">
-                <span class="milestone-state progress">Active</span>
-                <h3>IoT proof of concept</h3>
-                <p>ThingSpeak fields live from bench hardware; OLED local readout.</p>
-              </div>
-            </li>
-            <li class="progress-timeline-item progress-timeline-item--active reveal" data-reveal>
-              <span class="progress-timeline-dot" aria-hidden="true"></span>
-              <div class="progress-timeline-card">
-                <span class="milestone-state progress">Active</span>
-                <h3>Physical capsule</h3>
-                <p>Insulated prototype on bench with wiring iterations.</p>
-              </div>
-            </li>
-            <li class="progress-timeline-item progress-timeline-item--next reveal" data-reveal>
-              <span class="progress-timeline-dot" aria-hidden="true"></span>
-              <div class="progress-timeline-card">
-                <span class="milestone-state">Next</span>
-                <h3>Hull + waterproofing</h3>
-                <p>3D-printed shell, seals, thruster/servo trade studies, weight budget.</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-alt section-tight section-bounded" id="resources">
-      <div class="section-inner">
-        <header class="section-header reveal" data-reveal>
-          <p class="section-label">09 · References</p>
-          <h2>Reference library</h2>
-          <p class="section-subtitle">External guides · community builds · papers</p>
-        </header>
-        <div class="resource-grid reveal-stagger reveal" data-reveal>
-          <a class="resource-card stagger-item" href="https://www.open-electronics.org/robofish-create-your-robot-fish-with-arduino/" target="_blank" rel="noopener noreferrer">
-            <span class="resource-card-type">Tutorial</span>
-            <span class="resource-card-title">Open Electronics — RoboFish with Arduino</span>
-            <span class="resource-card-ext" aria-hidden="true">↗</span>
-          </a>
-          <a class="resource-card stagger-item" href="https://blog.arduino.cc/2021/07/23/this-arduino-powered-robotic-fish-was-inspired-by-the-real-thing/" target="_blank" rel="noopener noreferrer">
-            <span class="resource-card-type">Article</span>
-            <span class="resource-card-title">Arduino Blog — robotic fish inspiration</span>
-            <span class="resource-card-ext" aria-hidden="true">↗</span>
-          </a>
-          <a class="resource-card stagger-item" href="https://www.instructables.com/GPS-With-Arduino-Tutorial-Step-by-Step/" target="_blank" rel="noopener noreferrer">
-            <span class="resource-card-type">Tutorial</span>
-            <span class="resource-card-title">Instructables — GPS with Arduino</span>
-            <span class="resource-card-ext" aria-hidden="true">↗</span>
-          </a>
-          <a class="resource-card stagger-item" href="https://www.reddit.com/r/ArduinoProjects/comments/kafeyz/robotic_fish_using_arduino_unoo_hc05/" target="_blank" rel="noopener noreferrer">
-            <span class="resource-card-type">Community</span>
-            <span class="resource-card-title">Reddit — Arduino Uno robotic fish discussion</span>
-            <span class="resource-card-ext" aria-hidden="true">↗</span>
-          </a>
-          <a class="resource-card stagger-item" href="https://www.instructables.com/Underwater-Swimming-Pool-Bluetooth-Solar-Cleaning-/" target="_blank" rel="noopener noreferrer">
-            <span class="resource-card-type">Reference</span>
-            <span class="resource-card-title">Instructables — underwater solar pool cleaner</span>
-            <span class="resource-card-ext" aria-hidden="true">↗</span>
-          </a>
-          <a class="resource-card stagger-item" href="https://www.sciencebuddies.org/science-fair-projects/project-ideas/Robotics_p052/robotics/arduino-underwater-ROV" target="_blank" rel="noopener noreferrer">
-            <span class="resource-card-type">Tutorial</span>
-            <span class="resource-card-title">Science Buddies — Arduino underwater ROV</span>
-            <span class="resource-card-ext" aria-hidden="true">↗</span>
-          </a>
-          <a class="resource-card stagger-item" href="https://learn.adafruit.com/lesson-0-getting-started" target="_blank" rel="noopener noreferrer">
-            <span class="resource-card-type">Tutorial</span>
-            <span class="resource-card-title">Adafruit — Getting started</span>
-            <span class="resource-card-ext" aria-hidden="true">↗</span>
-          </a>
-          <a class="resource-card stagger-item" href="https://www.ceva-ip.com/blog/how-sensor-fusion-enables-effective-robot-navigation/" target="_blank" rel="noopener noreferrer">
-            <span class="resource-card-type">Article</span>
-            <span class="resource-card-title">Ceva — sensor fusion for navigation</span>
-            <span class="resource-card-ext" aria-hidden="true">↗</span>
-          </a>
-          <a class="resource-card stagger-item" href="https://www.youtube.com/watch?v=n8XFBFg3A6k" target="_blank" rel="noopener noreferrer">
-            <span class="resource-card-type">Video</span>
-            <span class="resource-card-title">YouTube — thermostat in Tinkercad (GringoChemist)</span>
-            <span class="resource-card-ext" aria-hidden="true">↗</span>
-          </a>
-          <a class="resource-card stagger-item" href="https://www.youtube.com/watch?v=I-5_MN5_Fmc" target="_blank" rel="noopener noreferrer">
-            <span class="resource-card-type">Video</span>
-            <span class="resource-card-title">YouTube — team-shared reference (Malahim)</span>
-            <span class="resource-card-ext" aria-hidden="true">↗</span>
-          </a>
-          <a class="resource-card stagger-item" href="https://share.google/AOpP2jNpxgyWV7q84" target="_blank" rel="noopener noreferrer">
-            <span class="resource-card-type">Reference</span>
-            <span class="resource-card-title">DIY induction heater — lab tooling research</span>
-            <span class="resource-card-ext" aria-hidden="true">↗</span>
-          </a>
-          <a class="resource-card stagger-item" href="https://www.mdpi.com/2076-3417/15/13/7052" target="_blank" rel="noopener noreferrer">
-            <span class="resource-card-type">Paper</span>
-            <span class="resource-card-title">MDPI — engineering article (team reference)</span>
-            <span class="resource-card-ext" aria-hidden="true">↗</span>
-          </a>
-          <a class="resource-card stagger-item" href="https://www.nature.com/articles/s44172-025-00447-w" target="_blank" rel="noopener noreferrer">
-            <span class="resource-card-type">Paper</span>
-            <span class="resource-card-title">Nature Scientific Reports — design reference</span>
-            <span class="resource-card-ext" aria-hidden="true">↗</span>
-          </a>
-          <a class="resource-card stagger-item" href="https://timesofindia.indiatimes.com/science/chinas-new-soft-robot-can-float-crawl-and-walk-through-spaces-others-cannot/articleshow/127710823.cms" target="_blank" rel="noopener noreferrer">
-            <span class="resource-card-type">Article</span>
-            <span class="resource-card-title">Soft robot mobility reference (news)</span>
-            <span class="resource-card-ext" aria-hidden="true">↗</span>
-          </a>
-          <div class="resource-card resource-card--note stagger-item">
-            <span class="resource-card-type">Note</span>
-            <p class="resource-card-note">Commercial chassis: search “underwater ROV kit” or marketplace listings for sizing only—verify ratings and seals independently.</p>
+        <div class="cite-box">
+          <p class="cite-text" id="cite-text">DVC Pond Research engineering team. <cite>DVC Pond Research Project</cite>: student engineering documentation and field notes (Spring 2026). Diablo Valley College; MESA DVC Foundation affiliation.</p>
+          <div class="cite-actions">
+            <button type="button" class="btn btn-dark btn-sm" id="copy-cite">Copy citation</button>
+            <span class="cite-status" id="cite-status" role="status" aria-live="polite"></span>
           </div>
+          <p class="cite-bib">Retrieved from the <a href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">IO documentation hub<svg class="i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="vh"> (opens in a new tab)</span></a> and this project site. Replace with a formal citation once a Zenodo archive or proceedings DOI is published.</p>
         </div>
       </div>
     </section>
-
-    <section class="section section-tight section-bounded" id="cite">
-      <div class="section-inner">
-        <header class="section-header reveal" data-reveal>
-          <p class="section-label">10 · Citation</p>
-          <h2>How to cite this project</h2>
-          <p class="section-subtitle">No DOI yet — use the canonical documentation hub</p>
-        </header>
-        <div class="cite-panel reveal" data-reveal>
-          <p class="cite-text">DVC Pond Research engineering team. <cite>DVC Pond Research Project</cite> — student engineering documentation and field notes (Spring 2026). Diablo Valley College; MESA DVC Foundation affiliation.</p>
-          <p class="cite-bib">Retrieved from the <a href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">IO documentation hub ↗</a> and this project site. Replace with a formal citation once a Zenodo archive or proceedings DOI is published.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-bounded" id="gallery">
-      <div class="section-inner">
-        <header class="section-header reveal" data-reveal>
-          <p class="section-label">11 · Media</p>
-          <h2>Photo and document gallery</h2>
-          <p class="section-subtitle">Lab, bench, and planning artifacts</p>
-        </header>
-        <div class="gallery-masonry">
-          <figure class="gallery-tile span-2 reveal gallery-lightbox-item" data-reveal tabindex="0" role="button" aria-label="Open image: ThingSpeak charts for temperature and humidity"><img src="assets/image-9a50c8b9-c697-4783-88cf-bc477b0e032a.png" alt="ThingSpeak charts for temperature and humidity" loading="lazy" /><figcaption class="gallery-tile-caption">ThingSpeak charts for temperature and humidity</figcaption></figure>
-          <figure class="gallery-tile reveal gallery-lightbox-item" data-reveal tabindex="0" role="button" aria-label="Open image: ESP8266 breadboard prototype"><img src="assets/image-a8b3d238-3db9-4907-aa1e-0365a727f5cf.png" alt="ESP8266 breadboard prototype" loading="lazy" /><figcaption class="gallery-tile-caption">ESP8266 breadboard prototype</figcaption></figure>
-          <figure class="gallery-tile reveal gallery-lightbox-item" data-reveal tabindex="0" role="button" aria-label="Open image: Typed meeting notes for incubator project"><img src="assets/image-5cbed27d-8dfd-4c12-b78f-d15eba211f14.png" alt="Typed meeting notes for incubator project" loading="lazy" /><figcaption class="gallery-tile-caption">Typed meeting notes for incubator project</figcaption></figure>
-          <figure class="gallery-tile reveal gallery-lightbox-item" data-reveal tabindex="0" role="button" aria-label="Open image: Capsule prototype on bench"><img src="assets/IMG_9305-fd8c99a7-d7f6-46c7-87bb-90f26fa1856b.png" alt="Capsule prototype on bench" loading="lazy" /><figcaption class="gallery-tile-caption">Capsule prototype on bench</figcaption></figure>
-          <figure class="gallery-tile reveal gallery-lightbox-item" data-reveal tabindex="0" role="button" aria-label="Open image: Interior of capsule with heater wiring"><img src="assets/IMG_9284-6f4fc8a9-2587-49a7-90bc-41c229796986.png" alt="Interior of capsule with heater wiring" loading="lazy" /><figcaption class="gallery-tile-caption">Interior of capsule with heater wiring</figcaption></figure>
-          <figure class="gallery-tile reveal gallery-lightbox-item" data-reveal tabindex="0" role="button" aria-label="Open image: Thermometer inside insulated box"><img src="assets/IMG_9289-f9b99d73-2ede-48bd-ae7f-5490929300dc.png" alt="Thermometer inside insulated box" loading="lazy" /><figcaption class="gallery-tile-caption">Thermometer inside insulated box</figcaption></figure>
-          <figure class="gallery-tile reveal gallery-lightbox-item" data-reveal tabindex="0" role="button" aria-label="Open image: Capsule with clear lid in lab"><img src="assets/IMG_9291-60738cc7-accf-4076-9ef2-d4a913bfe811.png" alt="Capsule with clear lid in lab" loading="lazy" /><figcaption class="gallery-tile-caption">Capsule with clear lid in lab</figcaption></figure>
-          <figure class="gallery-tile reveal gallery-lightbox-item" data-reveal tabindex="0" role="button" aria-label="Open image: Heating mantle on cart"><img src="assets/IMG_9292-8bd9871e-b59c-4ff6-bfdb-293f17ecd015.png" alt="Heating mantle on cart" loading="lazy" /><figcaption class="gallery-tile-caption">Heating mantle on cart</figcaption></figure>
-          <figure class="gallery-tile reveal gallery-lightbox-item" data-reveal tabindex="0" role="button" aria-label="Open image: Lab vacuum pumps and carts"><img src="assets/IMG_9295-02d83aba-53cf-4083-ace2-d16d7bd8cc6d.png" alt="Lab vacuum pumps and carts" loading="lazy" /><figcaption class="gallery-tile-caption">Lab vacuum pumps and carts</figcaption></figure>
-          <figure class="gallery-tile reveal gallery-lightbox-item" data-reveal tabindex="0" role="button" aria-label="Open image: Heaters and hot plates shelf"><img src="assets/IMG_9296-974b519b-f3bc-4388-96fa-bbcc62566855.png" alt="Heaters and hot plates shelf" loading="lazy" /><figcaption class="gallery-tile-caption">Heaters and hot plates shelf</figcaption></figure>
-          <figure class="gallery-tile reveal gallery-lightbox-item" data-reveal tabindex="0" role="button" aria-label="Open image: Kanthal wire product page"><img src="assets/IMG_9298-8b00fe72-d2fd-4e57-922f-cc8ebe199d7f.png" alt="Kanthal wire product page" loading="lazy" /><figcaption class="gallery-tile-caption">Kanthal wire product page</figcaption></figure>
-          <figure class="gallery-tile reveal gallery-lightbox-item" data-reveal tabindex="0" role="button" aria-label="Open image: Team at bench with laptops"><img src="assets/IMG_9301-ebfede92-6456-4f64-8e8a-6a7cae587f3d.png" alt="Team at bench with laptops" loading="lazy" /><figcaption class="gallery-tile-caption">Team at bench with laptops</figcaption></figure>
-          <figure class="gallery-tile reveal gallery-lightbox-item" data-reveal tabindex="0" role="button" aria-label="Open image: Equipment cart with pH sensor"><img src="assets/IMG_9303-754ce00c-f466-42d8-95e0-b664c58daf75.png" alt="Equipment cart with pH sensor" loading="lazy" /><figcaption class="gallery-tile-caption">Equipment cart with pH sensor</figcaption></figure>
-          <figure class="gallery-tile reveal gallery-lightbox-item" data-reveal tabindex="0" role="button" aria-label="Open image: Handwritten incubator notes"><img src="assets/IMG_9306-823d7251-95bc-44e9-8064-8fcabc889c61.png" alt="Handwritten incubator notes" loading="lazy" /><figcaption class="gallery-tile-caption">Handwritten incubator notes</figcaption></figure>
-          <figure class="gallery-tile reveal gallery-lightbox-item" data-reveal tabindex="0" role="button" aria-label="Open image: Planning document scan"><img src="assets/image-b408a74e-8973-422d-9205-7c22feaa2e04.png" alt="Planning document scan" loading="lazy" /><figcaption class="gallery-tile-caption">Planning document scan</figcaption></figure>
-          <figure class="gallery-tile reveal gallery-lightbox-item" data-reveal tabindex="0" role="button" aria-label="Open image: Lab documentation photo"><img src="assets/IMG_9285-4e225c41-34ad-41b0-bf90-e4a86c35202d.png" alt="Lab documentation photo" loading="lazy" /><figcaption class="gallery-tile-caption">Lab documentation photo</figcaption></figure>
-          <figure class="gallery-tile reveal gallery-lightbox-item" data-reveal tabindex="0" role="button" aria-label="Open image: Lab documentation photo"><img src="assets/IMG_9287-0899496b-464c-4bf9-b79d-5b9ae2e3f2b6.png" alt="Lab documentation photo" loading="lazy" /><figcaption class="gallery-tile-caption">Lab documentation photo</figcaption></figure>
-          <figure class="gallery-tile reveal gallery-lightbox-item" data-reveal tabindex="0" role="button" aria-label="Open image: Lab documentation photo"><img src="assets/IMG_9290-0e72d468-5686-4d4f-939d-0d9cd032d935.png" alt="Lab documentation photo" loading="lazy" /><figcaption class="gallery-tile-caption">Lab documentation photo</figcaption></figure>
-        </div>
-      </div>
-    </section>
-
-      </div>
-    </div>
   </main>
 
   <footer class="site-footer">
-    <div class="container-wide footer-main">
+    <div class="wrap footer-grid">
       <div class="footer-brand">
-        <a class="footer-logo" href="#top" aria-label="Diablo Valley College home">
-          <svg class="footer-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="120" height="40" aria-hidden="true"><rect width="120" height="40" rx="6" fill="#1a3a2a"/><text x="60" y="26" text-anchor="middle" fill="#fff" font-family="Crimson Pro, Georgia, serif" font-size="15" font-weight="300">DVC</text></svg>
-        </a>
+        <svg class="footer-mark" width="40" height="50" aria-hidden="true"><use href="#i-secchi"/></svg>
         <p class="footer-title">DVC Pond Research Project</p>
-        <p class="footer-affil">MESA DVC Foundation</p>
-        <p class="footer-dept">Diablo Valley College Engineering Department</p>
-        <p class="footer-meta">Pond ecology and instrumentation</p>
-        <p class="footer-links">
-          <a href="https://www.dvc.edu/" target="_blank" rel="noopener noreferrer">DVC</a>
-          · <a href="https://www.dvc.edu/academics/learning-communities/mesa-program" target="_blank" rel="noopener noreferrer">MESA DVC</a>
-          · <a href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">IO documentation</a>
-          · <a href="https://github.com/ShadowEsu/dvcpondresearch" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </p>
+        <p>MESA DVC Foundation</p>
+        <p>Diablo Valley College Engineering Department</p>
+        <p class="footer-muted">Pond ecology and instrumentation</p>
+        <ul class="footer-links">
+          <li><a href="https://www.dvc.edu/" target="_blank" rel="noopener noreferrer">DVC<span class="vh"> (opens in a new tab)</span></a></li>
+          <li><a href="https://www.dvc.edu/academics/learning-communities/mesa-program" target="_blank" rel="noopener noreferrer">MESA DVC<span class="vh"> (opens in a new tab)</span></a></li>
+          <li><a href="https://shadowesu.github.io/dvcpondresearch/" target="_blank" rel="noopener noreferrer">IO documentation<span class="vh"> (opens in a new tab)</span></a></li>
+          <li><a href="https://github.com/ShadowEsu/dvcpondresearch" target="_blank" rel="noopener noreferrer">GitHub<span class="vh"> (opens in a new tab)</span></a></li>
+        </ul>
       </div>
       <nav class="footer-nav" aria-label="Footer">
-        <p class="footer-nav-title">Navigate</p>
-        <ul class="footer-nav-list">
-          <li><a href="#data">Data</a></li>
-          <li><a href="#mission">Overview</a></li>
-          <li><a href="#monitoring">Instrumentation</a></li>
-          <li><a href="#roadmap">Roadmap</a></li>
-          <li><a href="#team">People</a></li>
+        <p class="footer-title">On this page</p>
+        <ul>
+          <li><a href="#mission">Question</a></li>
+          <li><a href="#monitoring">Methods</a></li>
           <li><a href="#engineering">Systems &amp; code</a></li>
-          <li><a href="#progress">Progress</a></li>
+          <li><a href="#data">Data</a></li>
+          <li><a href="#progress">Milestones</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#gallery">Gallery</a></li>
           <li><a href="#resources">References</a></li>
           <li><a href="#cite">Cite</a></li>
-          <li><a href="#gallery">Media</a></li>
         </ul>
       </nav>
       <div class="footer-aside">
         <p class="footer-title">Acknowledgments</p>
-        <p class="footer-meta">MESA DVC Foundation · Biology and chemistry lab staff · ASDVC Environmental Affairs (partnership exploration)</p>
+        <ul class="footer-ack">
+          <li>MESA DVC Foundation</li>
+          <li>Biology and chemistry lab staff</li>
+          <li>ASDVC Environmental Affairs (partnership exploration)</li>
+        </ul>
       </div>
     </div>
-    <div class="footer-bar">
-      <div class="container-wide footer-bar-inner">
-        <span>© <span id="year"></span> DVC Pond Research Project. Engineering team informational site.</span>
-      </div>
+    <div class="wrap footer-bar">
+      <p>© <span id="year">2026</span> DVC Pond Research Project. Engineering team informational site.</p>
+      <a href="#top" class="to-top">Back to top</a>
     </div>
   </footer>
 
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
-    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
-    <button type="button" class="lightbox-prev" id="lightbox-prev" aria-label="Previous image">‹</button>
-    <button type="button" class="lightbox-next" id="lightbox-next" aria-label="Next image">›</button>
-    <figure class="lightbox-figure">
-      <img class="lightbox-img" id="lightbox-img" src="" alt="" />
-      <figcaption class="lightbox-caption" id="lightbox-caption"></figcaption>
+  <dialog class="lightbox" id="lightbox" aria-label="Image viewer">
+    <figure class="lb-figure">
+      <img class="lb-img" id="lb-img" src="" alt="" />
+      <figcaption class="lb-cap"><span id="lb-caption"></span> <span class="lb-count" id="lb-count"></span></figcaption>
     </figure>
-  </div>
+    <button type="button" class="lb-btn lb-close" id="lb-close" aria-label="Close image viewer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" stroke="currentColor" stroke-width="2" fill="none"/></svg></button>
+    <button type="button" class="lb-btn lb-prev" id="lb-prev" aria-label="Previous image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 7 12l8 8" stroke="currentColor" stroke-width="2" fill="none"/></svg></button>
+    <button type="button" class="lb-btn lb-next" id="lb-next" aria-label="Next image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 4 8 8-8 8" stroke="currentColor" stroke-width="2" fill="none"/></svg></button>
+  </dialog>
 
-  <script src="main.js"></script>
+  <script src="main.js" defer></script>
 </body>
 </html>
